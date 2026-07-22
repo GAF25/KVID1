@@ -1,0 +1,165 @@
+/* ===========================================
+   NAVBAR
+=========================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:24px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(92%,1500px);
+
+    z-index:1000;
+
+    transition:.4s ease;
+
+}
+
+.nav-wrapper{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 36px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(10,10,10,.55);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:18px;
+
+}
+
+/* ===========================================
+   LOGO
+=========================================== */
+
+.logo{
+
+    font-size:1.6rem;
+
+    font-weight:600;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+}
+
+/* ===========================================
+   LINKS
+=========================================== */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:42px;
+
+}
+
+.nav-links a{
+
+    position:relative;
+
+    color:#d7d7d7;
+
+    font-size:.95rem;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:white;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+/* ===========================================
+   CTA
+=========================================== */
+
+.nav-btn{
+
+    border:none;
+
+    background:white;
+
+    color:black;
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.nav-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 28px rgba(255,255,255,.18);
+
+}
+
+/* ===========================================
+   SCROLLED
+=========================================== */
+
+.navbar.scrolled{
+
+    top:14px;
+
+}
+
+.navbar.scrolled .nav-wrapper{
+
+    padding:14px 32px;
+
+    background:rgba(8,8,8,.82);
+
+}

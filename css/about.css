@@ -1,0 +1,195 @@
+/* ===========================================
+   ABOUT
+=========================================== */
+
+.about{
+
+    padding:120px 8%;
+
+    background:#070707;
+
+    display:flex;
+
+    justify-content:center;
+}
+.about-card{
+
+    width:100%;
+
+    max-width:1250px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:32px;
+
+    backdrop-filter:blur(20px);
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:80px;
+
+    padding:80px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.about-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+
+        linear-gradient(
+        90deg,
+        rgba(255,255,255,.025) 1px,
+        transparent 1px);
+
+    background-size:60px 60px;
+
+    opacity:.35;
+
+    pointer-events:none;
+}
+
+.about-container{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:1450px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    align-items:center;
+
+    gap:100px;
+}
+
+.about-tag{
+
+    letter-spacing:5px;
+
+    font-size:.8rem;
+
+    color:#999;
+}
+
+.about h2{
+
+    font-size:3.5rem;
+
+    font-weight:300;
+
+    margin:20px 0;
+}
+.about h2 span{
+
+    background: linear-gradient(
+        180deg,
+        #FFF6D8 0%,
+        #E7C98B 45%,
+        #C89A4A 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    display:inline-block;
+}
+
+.about p{
+
+    color:#bdbdbd;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+}
+
+.about-features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-bottom:45px;
+}
+
+.about-features div{
+
+    color:#ececec;
+}
+
+.about-right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.about-right::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(255,255,255,.08),
+    transparent 70%);
+}
+
+.about-right img{
+
+    width:100%;
+
+    max-width:420px;
+
+    animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+    }
+
+    100%{
+
+        transform:translateY(0px);
+    }
+}

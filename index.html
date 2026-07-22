@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>KVID Corporate</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/collections.css">
+    <link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/loader.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/footer.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================
+     NAVBAR
+========================================== -->
+<div id="loader">
+
+    <div class="">
+
+        <div class="loader-line top"></div>
+
+        <div class="loader-logo">
+
+            <span>K</span>
+            <span>V</span>
+            <span>I</span>
+            <span>D</span>
+
+        </div>
+
+        <div class="loader-line bottom"></div>
+
+    </div>
+
+</div>
+<header class="navbar">
+
+    <div class="nav-wrapper container">
+
+        <div class="logo">
+
+            KVID
+
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="#hero">Home</a>
+            <a href="#collections">Collections</a>
+            <a href="about">About</a>
+            <a href="#corporate">Corporate</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <button class="nav-btn">
+
+            Get Quote
+
+        </button>
+
+    </div>
+
+</header>
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="hero" id="hero">
+
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline>
+
+        <source
+            src="v1.mp4"
+            type="video/mp4">
+
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <span class="hero-badge">
+
+                PREMIUM CORPORATE APPAREL
+
+            </span>
+
+            <h1 class="hero-title">
+
+                KVID <br> CLOTHING
+
+            </h1>
+
+            <p class="hero-description">
+
+                MINIMALIST • CORPORATE
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+
+                    Explore Collection
+
+                </button>
+
+                <button class="secondary-btn">
+
+                    Get a Quote
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-indicator">
+
+        Scroll
+
+        <div class="scroll-line"></div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     COLLECTIONS
+========================================== -->
+
+<section class="collections" id="collections">
+
+    <div class="collection-header">
+
+        <span id= "spin" >Our Collections</span>
+
+        <h2>    <span class="gold-text">
+        Designed for Every Industry
+    </span></h2>
+
+    </div>
+
+    <div class="collection-toolbar">
+
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Polo</button>
+        <button class="filter-btn">T-Shirts</button>
+        <button class="filter-btn">Shirts</button>
+        <button class="filter-btn">Hoodies</button>
+
+        <button class="filter-icon">
+
+            <i class="fa-solid fa-sliders"></i>
+
+        </button>
+
+    </div>
+
+    <div class="collection-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="collection-card"
+             data-category="polo"
+             data-name="Premium Polo"
+
+             data-black-front="polo1.png"
+             data-black-back="polo1-back.png"
+
+             data-red-front="S-r.png"
+             data-red-back="S-r-back.png"
+
+             data-navy-front="S-b.png"
+             data-navy-back="S-b-back.png">
+
+            <img src="polo1.png" alt="Premium Polo">
+
+            <h3>Polo T-Shirts</h3>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="collection-card"
+             data-category="shirts"
+             data-name="Corporate Shirt"
+
+             data-black-front="polo2.png"
+             data-black-back="polo2-back.png">
+
+            <img src="polo2.png" alt="Corporate Shirt">
+
+            <h3>Corporate Shirts</h3>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="collection-card"
+             data-category="hoodies"
+             data-name="Premium Hoodie"
+
+             data-black-front="shirt1.png"
+             data-black-back="shirt1-back.png">
+
+            <img src="shirt1.png" alt="Premium Hoodie">
+
+            <h3>Hoodies</h3>
+
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="collection-card"
+             data-category="tshirts"
+             data-name="Corporate Jacket"
+
+             data-black-front="shirt2.png"
+             data-black-back="shirt2-back.png">
+
+            <img src="shirt2.png" alt="Corporate Jacket">
+
+            <h3>Jackets</h3>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ==========================================
+     PRODUCT QUICK VIEW MODAL
+========================================== -->
+
+<div class="product-modal">
+
+    <div class="product-box">
+
+        <button class="close-modal">
+
+            &times;
+
+        </button>
+
+        <!-- LEFT -->
+
+        <div class="product-left">
+
+            <div class="product-image">
+
+                <img
+                    src=""
+                    class="front-img"
+                    alt="Front View">
+
+                <img
+                    src=""
+                    class="back-img"
+                    alt="Back View">
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="product-right">
+
+            <h2 id="productTitle">
+
+                Premium Polo
+
+            </h2>
+
+            <p class="product-price">
+
+                ₹499
+
+            </p>
+
+            <h4>Colours</h4>
+
+            <div class="color-options">
+
+                <button
+                    class="color black active"
+                    data-color="black">
+                </button>
+
+                <button
+                    class="color red"
+                    data-color="red">
+                </button>
+
+                <button
+                    class="color navy"
+                    data-color="navy">
+                </button>
+
+            </div>
+
+            <h4>Sizes</h4>
+
+            <div class="sizes">
+
+                <button>XS</button>
+                <button>S</button>
+                <button class="active">M</button>
+                <button>L</button>
+                <button>XL</button>
+                <button>XXL</button>
+
+            </div>
+
+            <button class="primary-btn">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ==========================================
+     ABOUT
+========================================== -->
+
+<section class="about" id = "about">
+
+    <div class="about-card">
+
+        <div class="about-left">
+
+            <span class="about-tag">
+                CORPORATE APPAREL
+            </span>
+
+            <h2>
+               <span> Outfitting Teams</span>
+                <br>
+               <span> with Premium Apparel.</span>
+            </h2>
+
+            <p>
+                Premium polos, T-shirts, uniforms and corporate apparel
+                designed to elevate your brand identity.
+            </p>
+
+            <div class="about-features">
+
+               <div><span>✓ Premium Fabrics</span></div>
+                <div>✓ Custom Branding</div>
+                <div>✓ Bulk Discounts</div>
+                <div>✓ PAN India Delivery</div>
+
+            </div>
+
+            <button class="primary-btn">
+                Get a Quote
+            </button>
+
+        </div>
+
+        <div class="about-right">
+
+            <img src="polo1.png">
+
+        </div>
+
+    </div>
+
+</section>
+<section class="contact" id="contact">
+
+    <div class="contact-card">
+
+        <span class="contact-tag">
+            CONTACT
+        </span>
+
+        <h2>
+            Let's Build
+            <br>
+            <span class="gold-text">Your Brand.</span>
+        </h2>
+
+        <p>
+            Whether you're ordering uniforms for a startup,
+            outfitting a corporate team, or creating branded
+            merchandise, we'd love to hear from you.
+        </p>
+
+        <div class="contact-info">
+
+            <div>
+                <i class="fa-solid fa-envelope"></i>
+                hello@kvid.in
+            </div>
+
+            <div>
+                <i class="fa-solid fa-phone"></i>
+                +91 98765 43210
+            </div>
+
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                Bengaluru, India
+            </div>
+
+        </div>
+
+        <button class="primary-btn">
+            Get a Quote
+        </button>
+
+    </div>
+
+</section>
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer class="footer">
+
+    <div class="footer-card">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+
+                <h2>KVID</h2>
+
+                <p>
+                    Premium Corporate Apparel crafted for modern businesses.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#hero">Home</a>
+                <a href="#collections">Collections</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+            <div class="footer-social">
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:hello@kvid.in"><i class="fas fa-envelope"></i></a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+
+            <p>© 2026 KVID. All Rights Reserved.</p>
+
+            <span>Designed with Precision.</span>
+
+        </div>
+
+    </div>
+
+</footer>
+<!-- ==========================================
+     SCRIPTS
+========================================== -->
+
+<script src="js/navbar.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/collections.js"></script>
+<script src="js/app.js"></script>
+<script src="js/loader.js"></script>
+</body>
+
+</html>

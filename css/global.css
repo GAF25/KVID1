@@ -1,0 +1,44 @@
+/* RESET */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+body{
+    overflow-x:hidden;
+    font-family:"Inter",sans-serif;
+    background:#050505;
+    color:white;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.container{
+    width:min(92%,1500px);
+    margin:0 auto;
+}
