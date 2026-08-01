@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="css/collections.css">
     <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/loader.css">
-<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/about1.css">
 <link rel="stylesheet" href="css/contact.css">
 <link rel="stylesheet" href="css/footer.css">
 
@@ -45,7 +45,7 @@
 
     <div class="">
 
-        <div class="loader-line top"></div>
+        <div class=""></div>
 
         <div class="loader-logo">
 
@@ -56,7 +56,7 @@
 
         </div>
 
-        <div class="loader-line bottom"></div>
+        <div class=""></div>
 
     </div>
 
@@ -74,16 +74,16 @@
         <nav class="nav-links">
 
             <a href="#hero">Home</a>
-            <a href="#collections">Collections</a>
-            <a href="about">About</a>
-            <a href="#corporate">Corporate</a>
+            
+            <a href="about.html">About</a>
+            
             <a href="#contact">Contact</a>
 
         </nav>
 
         <button class="nav-btn">
 
-            Get Quote
+            Cart
 
         </button>
 
@@ -118,19 +118,19 @@
 
             <span class="hero-badge">
 
-                PREMIUM CORPORATE APPAREL
+                YOUR MERCHANDISE PARTNER
 
             </span>
 
             <h1 class="hero-title">
 
-                KVID <br> CLOTHING
+                KVID <br> MERCH
 
             </h1>
 
             <p class="hero-description">
 
-                MINIMALIST • CORPORATE
+                Your Merchandise Partner
 
             </p>
 
@@ -144,7 +144,7 @@
 
                 <button class="secondary-btn">
 
-                    Get a Quote
+                    Raise an Enquiry
 
                 </button>
 
@@ -172,21 +172,41 @@
 
     <div class="collection-header">
 
-        <span id= "spin" >Our Collections</span>
+        <span id="spin"></span>
 
-        <h2>    <span class="gold-text">
-        Designed for Every Industry
-    </span></h2>
+        <h2>
+            <span class="gold-text">
+                Our Collections
+            </span>
+        </h2>
 
     </div>
 
+    <!-- ==========================================
+            MAIN FILTERS
+    ========================================== -->
+
     <div class="collection-toolbar">
 
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">Polo</button>
-        <button class="filter-btn">T-Shirts</button>
-        <button class="filter-btn">Shirts</button>
-        <button class="filter-btn">Hoodies</button>
+        <button class="filter-btn active" data-filter="all">
+            All
+        </button>
+
+        <button class="filter-btn" data-filter="t-shirts">
+            T-Shirts
+        </button>
+
+        <button class="filter-btn" data-filter="shirts">
+            Shirts
+        </button>
+
+        <button class="filter-btn" data-filter="hoodies">
+            Hoodies
+        </button>
+
+        <button class="filter-btn" data-filter="bottoms">
+            Bottoms
+        </button>
 
         <button class="filter-icon">
 
@@ -196,12 +216,126 @@
 
     </div>
 
+    <!-- ==========================================
+            SUB FILTERS
+    ========================================== -->
+
+    <div class="subcategory-toolbar">
+
+        <!-- T-Shirts -->
+
+        <div class="subcategory-group active" data-parent="t-shirts">
+
+            <button class="sub-filter active">All</button>
+
+            <button class="sub-filter">
+                Performars
+            </button>
+
+            <button class="sub-filter">
+                Cotblend
+            </button>
+
+            <button class="sub-filter">
+                Cloudkot
+            </button>
+
+            <button class="sub-filter">
+                Halodrop
+            </button>
+
+            <button class="sub-filter">
+                Ezzygo
+            </button>
+
+            <button class="sub-filter">
+                Featherflex
+            </button>
+
+            <button class="sub-filter">
+                Spuntee
+            </button>
+
+            <button class="sub-filter">
+                Fluxknit
+            </button>
+
+        </div>
+
+        <!-- Shirts -->
+
+        <div class="subcategory-group" data-parent="shirts">
+
+            <button class="sub-filter active">
+                All
+            </button>
+
+            <button class="sub-filter">
+                Formal Shirts
+            </button>
+
+            <button class="sub-filter">
+                Casual Shirts
+            </button>
+
+        </div>
+
+        <!-- Hoodies -->
+
+        <div class="subcategory-group" data-parent="hoodies">
+
+            <button class="sub-filter active">
+                All
+            </button>
+
+            <button class="sub-filter">
+                Overhood
+            </button>
+
+            <button class="sub-filter">
+                Zipline
+            </button>
+
+        </div>
+
+        <!-- Bottoms -->
+
+        <div class="subcategory-group" data-parent="bottoms">
+
+            <button class="sub-filter active">
+                All
+            </button>
+
+            <button class="sub-filter">
+                Indifit
+            </button>
+
+            <button class="sub-filter">
+                Blucut
+            </button>
+
+            <button class="sub-filter">
+                Runflex
+            </button>
+
+            <button class="sub-filter">
+                Aircut
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+            PRODUCT GRID
+    ========================================== -->
+
     <div class="collection-grid">
 
         <!-- CARD 1 -->
 
         <div class="collection-card"
-             data-category="polo"
+             data-category="t-shirts"
              data-name="Premium Polo"
 
              data-black-front="polo1.png"
@@ -213,7 +347,21 @@
              data-navy-front="S-b.png"
              data-navy-back="S-b-back.png">
 
-            <img src="polo1.png" alt="Premium Polo">
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+                    <img class="card-front"
+                         src="polo1.png"
+                         alt="Front">
+
+                    <img class="card-back"
+                         src="polo1-back.png"
+                         alt="Back">
+
+                </div>
+
+            </div>
 
             <h3>Polo T-Shirts</h3>
 
@@ -228,7 +376,21 @@
              data-black-front="polo2.png"
              data-black-back="polo2-back.png">
 
-            <img src="polo2.png" alt="Corporate Shirt">
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+                    <img class="card-front"
+                         src="polo2.png"
+                         alt="Front">
+
+                    <img class="card-back"
+                         src="polo2-back.png"
+                         alt="Back">
+
+                </div>
+
+            </div>
 
             <h3>Corporate Shirts</h3>
 
@@ -243,7 +405,21 @@
              data-black-front="shirt1.png"
              data-black-back="shirt1-back.png">
 
-            <img src="shirt1.png" alt="Premium Hoodie">
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+                    <img class="card-front"
+                         src="shirt1.png"
+                         alt="Front">
+
+                    <img class="card-back"
+                         src="shirt1-back.png"
+                         alt="Back">
+
+                </div>
+
+            </div>
 
             <h3>Hoodies</h3>
 
@@ -252,22 +428,35 @@
         <!-- CARD 4 -->
 
         <div class="collection-card"
-             data-category="tshirts"
+             data-category="bottoms"
              data-name="Corporate Jacket"
 
              data-black-front="shirt2.png"
              data-black-back="shirt2-back.png">
 
-            <img src="shirt2.png" alt="Corporate Jacket">
+            <div class="card-flip">
 
-            <h3>Jackets</h3>
+                <div class="card-inner">
+
+                    <img class="card-front"
+                         src="shirt2.png"
+                         alt="Front">
+
+                    <img class="card-back"
+                         src="shirt2-back.png"
+                         alt="Back">
+
+                </div>
+
+            </div>
+
+            <h3>Bottoms</h3>
 
         </div>
 
     </div>
 
-</section>
-<!-- ==========================================
+</section><!-- ==========================================
      PRODUCT QUICK VIEW MODAL
 ========================================== -->
 
@@ -342,12 +531,12 @@
 
             <div class="sizes">
 
-                <button>XS</button>
                 <button>S</button>
-                <button class="active">M</button>
-                <button>L</button>
+                <button>M</button>
+                <button class="active">L</button>
                 <button>XL</button>
                 <button>XXL</button>
+                <button>XXXL</button>
 
             </div>
 
@@ -377,9 +566,9 @@
             </span>
 
             <h2>
-               <span> Outfitting Teams</span>
+               <span> Uniforms Built</span>
                 <br>
-               <span> with Premium Apparel.</span>
+               <span> for Your Team.</span>
             </h2>
 
             <p>
@@ -389,16 +578,16 @@
 
             <div class="about-features">
 
-               <div><span>✓ Premium Fabrics</span></div>
-                <div>✓ Custom Branding</div>
+               <div><span>✓ Custom Printing Done</span></div>
+                <div>✓ Custom Embriodery</div>
                 <div>✓ Bulk Discounts</div>
-                <div>✓ PAN India Delivery</div>
+                <div>✓ Free Logo Making</div>
 
             </div>
 
-            <button class="primary-btn">
-                Get a Quote
-            </button>
+<button class="primary-btn quote-btn">
+    Get a Quote
+</button>
 
         </div>
 
@@ -420,38 +609,37 @@
         </span>
 
         <h2>
-            Let's Build
+            Need
             <br>
-            <span class="gold-text">Your Brand.</span>
+            <span class="gold-text">Anything Else?</span>
         </h2>
 
         <p>
-            Whether you're ordering uniforms for a startup,
-            outfitting a corporate team, or creating branded
-            merchandise, we'd love to hear from you.
+            You dream it, we stitch it. 
+Any quality. Any thickness,any style - we got you covered
         </p>
 
         <div class="contact-info">
 
             <div>
                 <i class="fa-solid fa-envelope"></i>
-                hello@kvid.in
+                info@kvidmerch.com
             </div>
 
             <div>
                 <i class="fa-solid fa-phone"></i>
-                +91 98765 43210
+                +91 7411196731
             </div>
 
             <div>
                 <i class="fa-solid fa-location-dot"></i>
-                Bengaluru, India
+                Office Hours: 10:30 Am - 7:30 Pm
             </div>
 
         </div>
 
         <button class="primary-btn">
-            Get a Quote
+            Drop your requirements here!
         </button>
 
     </div>
@@ -480,7 +668,6 @@
             <div class="footer-links">
 
                 <a href="#hero">Home</a>
-                <a href="#collections">Collections</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
 
@@ -488,9 +675,12 @@
 
             <div class="footer-social">
 
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:hello@kvid.in"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/kvidmerch?igsh=MncxeWIycmRmcWo4"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/kvid-merch-b28121424?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:info@kvidmerch.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com/share/1Ea1J1F7zX/" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
 
             </div>
 
@@ -502,13 +692,56 @@
 
             <p>© 2026 KVID. All Rights Reserved.</p>
 
-            <span>Designed with Precision.</span>
 
         </div>
 
     </div>
 
 </footer>
+<!-- ==========================================
+     QUOTE MODAL
+========================================== -->
+
+<div class="quote-modal">
+
+    <div class="quote-box">
+
+        <button class="close-quote">&times;</button>
+
+        <h2>Request a Quote</h2>
+
+        <p>Tell us about your requirements.</p>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Your Name">
+
+        <input
+            type="text"
+            id="companyName"
+            placeholder="Company Name">
+
+        <input
+            type="tel"
+            id="phoneNumber"
+            placeholder="Phone Number">
+
+        <textarea
+            id="customerMessage"
+            rows="6"
+            placeholder="Tell us what you need..."></textarea>
+
+        <button id="sendWhatsapp">
+
+            Send via WhatsApp
+
+        </button>
+
+    </div>
+
+</div>
+
 <!-- ==========================================
      SCRIPTS
 ========================================== -->
@@ -518,6 +751,7 @@
 <script src="js/collections.js"></script>
 <script src="js/app.js"></script>
 <script src="js/loader.js"></script>
-</body>
+<script src="js/quote.js"></script>
 
+</body>
 </html>

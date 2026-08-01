@@ -14,9 +14,103 @@ const productTitle = document.getElementById("productTitle");
 
 const colorButtons = document.querySelectorAll(".color");
 const sizeButtons = document.querySelectorAll(".sizes button");
+
 const filterButtons = document.querySelectorAll(".filter-btn");
 
+const subGroups = document.querySelectorAll(".subcategory-group");
+
+const subFilters = document.querySelectorAll(".sub-filter");
+
 let currentProduct = null;
+
+// ===========================================
+// CARD FLIP
+// ===========================================
+
+// ===========================================
+// MAIN FILTER
+// ===========================================
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        const category = button.dataset.filter;
+
+        // Product filtering
+
+        cards.forEach(card => {
+
+            if (
+                category === "all" ||
+                card.dataset.category === category
+            ) {
+
+                card.style.display = "block";
+
+            }
+
+            else{
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+        // Hide every sub toolbar
+
+        subGroups.forEach(group =>
+            group.classList.remove("active")
+        );
+
+        // Show selected toolbar
+
+        if(category !== "all"){
+
+            const group = document.querySelector(
+                `.subcategory-group[data-parent="${category}"]`
+            );
+
+            if(group){
+
+                group.classList.add("active");
+
+            }
+
+        }
+
+    });
+
+});
+
+// ===========================================
+// SUB FILTER
+// ===========================================
+
+subFilters.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        const parent = button.parentElement;
+
+        parent.querySelectorAll(".sub-filter")
+        .forEach(btn=>btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        // Filtering logic for products can be
+        // added later using data-subcategory.
+
+    });
+
+});
 
 // ===========================================
 // OPEN MODAL
@@ -30,23 +124,24 @@ cards.forEach(card => {
 
         productTitle.textContent = card.dataset.name;
 
-        // Default to Black
         frontImg.src = card.dataset.blackFront;
         backImg.src = card.dataset.blackBack;
 
-        // Remove any inline styles
         frontImg.style.opacity = "";
         backImg.style.opacity = "";
 
-        // Reset active colour
-        colorButtons.forEach(btn => btn.classList.remove("active"));
+        colorButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
 
         const blackBtn = document.querySelector(
             '.color[data-color="black"]'
         );
 
         if (blackBtn) {
+
             blackBtn.classList.add("active");
+
         }
 
         modal.classList.add("active");
@@ -61,7 +156,7 @@ cards.forEach(card => {
 // CLOSE MODAL
 // ===========================================
 
-function closeModal() {
+function closeModal(){
 
     modal.classList.remove("active");
 
@@ -71,9 +166,9 @@ function closeModal() {
 
 closeBtn.addEventListener("click", closeModal);
 
-modal.addEventListener("click", e => {
+modal.addEventListener("click", e=>{
 
-    if (e.target === modal) {
+    if(e.target===modal){
 
         closeModal();
 
@@ -81,9 +176,9 @@ modal.addEventListener("click", e => {
 
 });
 
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown", e=>{
 
-    if (e.key === "Escape") {
+    if(e.key==="Escape"){
 
         closeModal();
 
@@ -95,11 +190,11 @@ document.addEventListener("keydown", e => {
 // SIZE SELECTOR
 // ===========================================
 
-sizeButtons.forEach(button => {
+sizeButtons.forEach(button=>{
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click",()=>{
 
-        sizeButtons.forEach(btn =>
+        sizeButtons.forEach(btn=>
             btn.classList.remove("active")
         );
 
@@ -113,13 +208,13 @@ sizeButtons.forEach(button => {
 // COLOR SELECTOR
 // ===========================================
 
-colorButtons.forEach(button => {
+colorButtons.forEach(button=>{
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click",()=>{
 
-        if (!currentProduct) return;
+        if(!currentProduct) return;
 
-        colorButtons.forEach(btn =>
+        colorButtons.forEach(btn=>
             btn.classList.remove("active")
         );
 
@@ -130,66 +225,23 @@ colorButtons.forEach(button => {
         const front = currentProduct.dataset[`${color}Front`];
         const back = currentProduct.dataset[`${color}Back`];
 
-        // Skip if this product doesn't have that colour
-        if (!front || !back) return;
+        if(!front || !back) return;
 
-        // Simple fade
-        frontImg.style.transition = "opacity .2s ease";
-        backImg.style.transition = "opacity .2s ease";
+        frontImg.style.transition="opacity .2s ease";
+        backImg.style.transition="opacity .2s ease";
 
-        frontImg.style.opacity = "0";
-        backImg.style.opacity = "0";
+        frontImg.style.opacity="0";
+        backImg.style.opacity="0";
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
-            frontImg.src = front;
-            backImg.src = back;
+            frontImg.src=front;
+            backImg.src=back;
 
-            // Remove inline opacity so CSS hover takes over again
-            frontImg.style.opacity = "";
-            backImg.style.opacity = "";
+            frontImg.style.opacity="";
+            backImg.style.opacity="";
 
-        }, 200);
-
-    });
-
-});
-
-// ===========================================
-// FILTERS
-// ===========================================
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        filterButtons.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        const category = button.textContent
-            .trim()
-            .toLowerCase()
-            .replace("-", "");
-
-        cards.forEach(card => {
-
-            if (
-                category === "all" ||
-                card.dataset.category === category
-            ) {
-
-                card.style.display = "block";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
+        },200);
 
     });
 

@@ -193,3 +193,117 @@
         transform:translateY(0px);
     }
 }
+.quote-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    backdrop-filter:blur(12px);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:10000;
+
+}
+
+.quote-modal.active{
+
+    display:flex;
+
+}
+
+.quote-box{
+
+    width:520px;
+
+    max-width:90%;
+
+    background:#111;
+
+    border-radius:24px;
+
+    padding:40px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.quote-box h2{
+
+    margin-bottom:10px;
+
+    color:#D4A85B;
+
+}
+
+.quote-box p{
+
+    margin-bottom:25px;
+
+    color:#bbb;
+
+}
+
+.quote-box input,
+.quote-box textarea{
+
+    width:100%;
+
+    margin-bottom:18px;
+
+    padding:16px;
+
+    background:#1a1a1a;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    border-radius:12px;
+
+    outline:none;
+
+}
+
+#sendWhatsapp{
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#25D366;
+
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+}
+
+.close-quote{
+
+    float:right;
+
+    border:none;
+
+    background:none;
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}

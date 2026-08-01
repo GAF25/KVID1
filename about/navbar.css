@@ -1,0 +1,141 @@
+/* ==========================================
+                NAVBAR
+========================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(18px);
+    background:rgba(8,8,8,.65);
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+nav{
+    width:min(1400px,92%);
+    margin:auto;
+    height:85px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.9rem;
+    font-weight:800;
+    letter-spacing:6px;
+    color:var(--gold);
+}
+
+#nav-links{
+    display:flex;
+    align-items:center;
+    gap:45px;
+    list-style:none;
+}
+
+#nav-links li{
+    position:relative;
+}
+
+#nav-links li a{
+    color:#f2f2f2;
+    font-size:.95rem;
+    letter-spacing:1px;
+    transition:.35s;
+}
+
+#nav-links li a:hover{
+    color:var(--gold);
+}
+
+#nav-links li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:var(--gold);
+    transition:.35s;
+}
+
+#nav-links li:hover a::after{
+    width:100%;
+}
+
+/* Dropdown */
+
+.dropdown-menu{
+    position:absolute;
+    top:45px;
+    left:50%;
+    transform:translateX(-50%);
+    width:220px;
+    padding:15px 0;
+    list-style:none;
+    border-radius:16px;
+    background:#101010;
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+}
+
+.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    top:55px;
+}
+
+.dropdown-menu li{
+    width:100%;
+}
+
+.dropdown-menu li a{
+    display:block;
+    padding:13px 24px;
+    transition:.3s;
+}
+
+.dropdown-menu li a:hover{
+    color:var(--gold);
+    background:rgba(255,255,255,.04);
+}
+
+/* Quote Button */
+
+.cart{
+    padding:13px 26px;
+    border:1px solid var(--gold);
+    border-radius:50px;
+    color:var(--gold);
+    font-weight:600;
+    cursor:pointer;
+    transition:.35s;
+}
+
+.cart:hover{
+    background:var(--gold);
+    color:#000;
+    transform:translateY(-2px);
+}
+
+/* Hamburger */
+
+.hamburger{
+    display:none;
+    font-size:2rem;
+    cursor:pointer;
+    color:var(--white);
+}
+
+/* Active Navbar */
+
+header.scrolled{
+    background:rgba(8,8,8,.9);
+    box-shadow:0 10px 35px rgba(0,0,0,.4);
+}
