@@ -22,30 +22,32 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/collections.css">
     <link rel="stylesheet" href="css/animations.css">
-<link rel="stylesheet" href="css/loader.css">
-<link rel="stylesheet" href="css/about1.css">
-<link rel="stylesheet" href="css/contact.css">
-<link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/about1.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
 
 </head>
 
+
 <body>
+
 
 <!-- ==========================================
      NAVBAR
 ========================================== -->
+
 <div id="loader">
 
-    <div class="">
-
-        <div class=""></div>
+    <div class="loader-inner">
 
         <div class="loader-logo">
 
@@ -61,35 +63,51 @@
     </div>
 
 </div>
+
+
 <header class="navbar">
 
     <div class="nav-wrapper container">
 
         <div class="logo">
-
             KVID
-
         </div>
 
         <nav class="nav-links">
 
-            <a href="#hero">Home</a>
-            
-            <a href="about.html">About</a>
-            
-            <a href="#contact">Contact</a>
+            <a href="#hero">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
 
         </nav>
 
         <button class="nav-btn">
-
             Cart
+        </button>
+
+        <button class="hamburger"
+                aria-label="Open menu"
+                aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
 
         </button>
 
     </div>
 
 </header>
+
+
 
 <!-- ==========================================
      HERO
@@ -110,42 +128,37 @@
 
     </video>
 
+
     <div class="hero-overlay"></div>
+
 
     <div class="hero-content">
 
         <div class="hero-text">
 
             <span class="hero-badge">
-
                 YOUR MERCHANDISE PARTNER
-
             </span>
 
+
             <h1 class="hero-title">
-
                 KVID <br> MERCH
-
             </h1>
 
+
             <p class="hero-description">
-
                 Your Merchandise Partner
-
             </p>
+
 
             <div class="hero-buttons">
 
                 <button class="primary-btn">
-
                     Explore Collection
-
                 </button>
 
                 <button class="secondary-btn">
-
                     Raise an Enquiry
-
                 </button>
 
             </div>
@@ -153,6 +166,7 @@
         </div>
 
     </div>
+
 
     <div class="scroll-indicator">
 
@@ -164,49 +178,81 @@
 
 </section>
 
+
+
 <!-- ==========================================
      COLLECTIONS
 ========================================== -->
 
 <section class="collections" id="collections">
 
+
     <div class="collection-header">
 
         <span id="spin"></span>
 
         <h2>
+
             <span class="gold-text">
                 Our Collections
             </span>
+
         </h2>
 
     </div>
 
+
+
     <!-- ==========================================
-            MAIN FILTERS
+         MAIN FILTERS
     ========================================== -->
 
     <div class="collection-toolbar">
 
-        <button class="filter-btn active" data-filter="all">
+        <button
+            class="filter-btn active"
+            data-filter="all">
+
             All
+
         </button>
 
-        <button class="filter-btn" data-filter="t-shirts">
+
+        <button
+            class="filter-btn"
+            data-filter="t-shirts">
+
             T-Shirts
+
         </button>
 
-        <button class="filter-btn" data-filter="shirts">
+
+        <button
+            class="filter-btn"
+            data-filter="shirts">
+
             Shirts
+
         </button>
 
-        <button class="filter-btn" data-filter="hoodies">
+
+        <button
+            class="filter-btn"
+            data-filter="hoodies">
+
             Hoodies
+
         </button>
 
-        <button class="filter-btn" data-filter="bottoms">
+
+        <button
+            class="filter-btn"
+            data-filter="bottoms">
+
             Bottoms
+
         </button>
+
 
         <button class="filter-icon">
 
@@ -216,380 +262,896 @@
 
     </div>
 
+
+
     <!-- ==========================================
-            SUB FILTERS
+         SUB FILTERS
     ========================================== -->
 
     <div class="subcategory-toolbar">
 
-        <!-- T-Shirts -->
 
-        <div class="subcategory-group active" data-parent="t-shirts">
+        <!-- ======================================
+             T-SHIRTS
+        ======================================= -->
 
-            <button class="sub-filter active">All</button>
+        <div
+            class="subcategory-group active"
+            data-parent="t-shirts">
 
-            <button class="sub-filter">
+
+            <button
+                class="sub-filter active"
+                data-subfilter="all">
+
+                All
+
+            </button>
+
+
+            <button
+                class="sub-filter"
+                data-subfilter="performars">
+
                 Performars
+
             </button>
 
-            <button class="sub-filter">
+
+            <button
+                class="sub-filter"
+                data-subfilter="cotblend">
+
                 Cotblend
+
             </button>
 
-            <button class="sub-filter">
+
+            <button
+                class="sub-filter"
+                data-subfilter="cloudkot">
+
                 Cloudkot
+
             </button>
 
-            <button class="sub-filter">
+
+            <button
+                class="sub-filter"
+                data-subfilter="halodrop">
+
                 Halodrop
+
             </button>
 
-            <button class="sub-filter">
+
+            <button
+                class="sub-filter"
+                data-subfilter="ezzygo">
+
                 Ezzygo
+
             </button>
 
-            <button class="sub-filter">
+
+            <button
+                class="sub-filter"
+                data-subfilter="featherflex">
+
                 Featherflex
+
             </button>
 
-            <button class="sub-filter">
+
+            <!-- SPUNTEE -->
+
+            <button
+                class="sub-filter"
+                data-subfilter="spuntee">
+
                 Spuntee
+
             </button>
 
-            <button class="sub-filter">
+
+            <button
+                class="sub-filter"
+                data-subfilter="snappy">
+
+                Snappy
+
+            </button>
+
+
+            <button
+                class="sub-filter"
+                data-subfilter="fluxknit">
+
                 Fluxknit
+
             </button>
+
 
         </div>
 
-        <!-- Shirts -->
 
-        <div class="subcategory-group" data-parent="shirts">
 
-            <button class="sub-filter active">
+        <!-- ======================================
+             SHIRTS
+        ======================================= -->
+
+        <div
+            class="subcategory-group"
+            data-parent="shirts">
+
+
+            <button
+                class="sub-filter active">
+
                 All
+
             </button>
 
+
             <button class="sub-filter">
+
                 Formal Shirts
+
             </button>
 
+
             <button class="sub-filter">
+
                 Casual Shirts
+
             </button>
+
 
         </div>
 
-        <!-- Hoodies -->
 
-        <div class="subcategory-group" data-parent="hoodies">
 
-            <button class="sub-filter active">
+        <!-- ======================================
+             HOODIES
+        ======================================= -->
+
+        <div
+            class="subcategory-group"
+            data-parent="hoodies">
+
+
+            <button
+                class="sub-filter active">
+
                 All
+
             </button>
 
+
             <button class="sub-filter">
+
                 Overhood
+
             </button>
 
+
             <button class="sub-filter">
+
                 Zipline
+
             </button>
+
 
         </div>
 
-        <!-- Bottoms -->
 
-        <div class="subcategory-group" data-parent="bottoms">
 
-            <button class="sub-filter active">
+        <!-- ======================================
+             BOTTOMS
+        ======================================= -->
+
+        <div
+            class="subcategory-group"
+            data-parent="bottoms">
+
+
+            <button
+                class="sub-filter active">
+
                 All
+
             </button>
 
+
             <button class="sub-filter">
+
                 Indifit
+
             </button>
 
+
             <button class="sub-filter">
+
                 Blucut
+
             </button>
 
+
             <button class="sub-filter">
+
                 Runflex
+
             </button>
 
+
             <button class="sub-filter">
+
                 Aircut
+
             </button>
+
 
         </div>
+
 
     </div>
 
+
+
     <!-- ==========================================
-            PRODUCT GRID
+         PRODUCT GRID
     ========================================== -->
 
     <div class="collection-grid">
 
-        <!-- CARD 1 -->
 
-        <div class="collection-card"
-             data-category="t-shirts"
-             data-name="Premium Polo"
+        <!-- =====================================
+             SPUNTEE
+        ====================================== -->
 
-             data-black-front="polo1.png"
-             data-black-back="polo1-back.png"
+        <div
+            class="collection-card"
 
-             data-red-front="S-r.png"
-             data-red-back="S-r-back.png"
+            data-category="t-shirts"
 
-             data-navy-front="S-b.png"
-             data-navy-back="S-b-back.png">
+            data-subcategory="spuntee"
+
+            data-name="Spuntee"
+
+            data-black-front="images/spuntee-black-front.png"
+            data-black-back="images/spuntee-black-back.png"
+
+            data-blue-front="images/spuntee-blue-front.png"
+            data-blue-back="images/spuntee-blue-back.png"
+
+            data-green-front="images/spuntee-green-front.png"
+            data-green-back="images/spuntee-green-back.png"
+
+            data-white-front="images/spuntee-white-front.png"
+            data-white-back="images/spuntee-white-back.png"
+
+            data-red-front="images/spuntee-red-front.png"
+            data-red-back="images/spuntee-red-back.png">
+
 
             <div class="card-flip">
 
                 <div class="card-inner">
 
-                    <img class="card-front"
-                         src="polo1.png"
-                         alt="Front">
 
-                    <img class="card-back"
-                         src="polo1-back.png"
-                         alt="Back">
+                    <img
+                        class="card-front"
+                        src="images/spuntee-black-front.png"
+                        alt="Spuntee Black Front">
+
+
+                    <img
+                        class="card-back"
+                        src="images/spuntee-black-back.png"
+                        alt="Spuntee Black Back">
+
 
                 </div>
 
             </div>
 
-            <h3>Polo T-Shirts</h3>
+
+            <h3>
+                Spuntee
+            </h3>
+
 
         </div>
 
-        <!-- CARD 2 -->
 
-        <div class="collection-card"
-             data-category="shirts"
-             data-name="Corporate Shirt"
+        <!-- =====================================
+             SNAPPY
+        ====================================== -->
 
-             data-black-front="polo2.png"
-             data-black-back="polo2-back.png">
+        <div
+            class="collection-card"
+
+            data-category="t-shirts"
+
+            data-subcategory="snappy"
+
+            data-name="Snappy"
+
+            data-black-front="images/snappy-black-front.png"
+            data-black-back="images/snappy-black-back.png"
+
+            data-blue-front="images/snappy-blue-front.png"
+            data-blue-back="images/snappy-blue-back.png"
+
+            data-white-front="images/snappy-white-front.png"
+            data-white-back="images/snappy-white-back.png"
+
+            data-yellow-front="images/snappy-yellow-front.png"
+            data-yellow-back="images/snappy-yellow-back.png">
+
 
             <div class="card-flip">
 
                 <div class="card-inner">
 
-                    <img class="card-front"
-                         src="polo2.png"
-                         alt="Front">
+                    <img
+                        class="card-front"
+                        src="images/snappy-yellow-front.png"
+                        alt="Snappy Black Front">
 
-                    <img class="card-back"
-                         src="polo2-back.png"
-                         alt="Back">
+                    <img
+                        class="card-back"
+                        src="images/snappy-yellow-back.png"
+                        alt="Snappy Black Back">
 
                 </div>
 
             </div>
 
-            <h3>Corporate Shirts</h3>
+
+            <h3>
+                Snappy
+            </h3>
+
 
         </div>
+<div
+    class="collection-card"
 
-        <!-- CARD 3 -->
+    data-category="t-shirts"
 
-        <div class="collection-card"
-             data-category="hoodies"
-             data-name="Premium Hoodie"
+    data-name="Premium Polo"
 
-             data-black-front="shirt1.png"
-             data-black-back="shirt1-back.png">
+    data-blue-front="images/premium-polo-blue-front.png"
+    data-blue-back="images/premium-polo-blue-back.png"
 
-            <div class="card-flip">
+    data-green-front="images/premium-polo-green-front.png"
+    data-green-back="images/premium-polo-green-back.png"
 
-                <div class="card-inner">
+    data-grey-front="images/premium-polo-grey-front.png"
+    data-grey-back="images/premium-polo-grey-back.png"
 
-                    <img class="card-front"
-                         src="shirt1.png"
-                         alt="Front">
+    data-red-front="images/premium-polo-red-front.png"
+    data-red-back="images/premium-polo-red-back.png">
 
-                    <img class="card-back"
-                         src="shirt1-back.png"
-                         alt="Back">
 
-                </div>
+    <div class="card-flip">
 
-            </div>
+        <div class="card-inner">
 
-            <h3>Hoodies</h3>
+            <img
+                class="card-front"
+                src="images/premium-polo-grey-front.png"
+                alt="Premium Polo Blue Front">
 
-        </div>
-
-        <!-- CARD 4 -->
-
-        <div class="collection-card"
-             data-category="bottoms"
-             data-name="Corporate Jacket"
-
-             data-black-front="shirt2.png"
-             data-black-back="shirt2-back.png">
-
-            <div class="card-flip">
-
-                <div class="card-inner">
-
-                    <img class="card-front"
-                         src="shirt2.png"
-                         alt="Front">
-
-                    <img class="card-back"
-                         src="shirt2-back.png"
-                         alt="Back">
-
-                </div>
-
-            </div>
-
-            <h3>Bottoms</h3>
+            <img
+                class="card-back"
+                src="images/premium-polo-grey-back.png"
+                alt="Premium Polo Blue Back">
 
         </div>
 
     </div>
 
-</section><!-- ==========================================
+
+    <h3>
+        Premium Polo
+    </h3>
+
+</div>
+
+
+
+        <!-- =====================================
+             CARD 1 — PREMIUM POLO
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="t-shirts"
+
+            data-name="Premium Polo"
+
+            data-black-front="polo1.png"
+            data-black-back="polo1-back.png"
+
+            data-red-front="S-r.png"
+            data-red-back="S-r-back.png"
+
+            data-navy-front="S-b.png"
+            data-navy-back="S-b-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+
+                    <img
+                        class="card-front"
+                        src="polo1.png"
+                        alt="Front">
+
+
+                    <img
+                        class="card-back"
+                        src="polo1-back.png"
+                        alt="Back">
+
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Polo T-Shirts
+            </h3>
+
+
+        </div>
+<!-- =====================================
+     PERFOMARS
+====================================== -->
+
+<div
+    class="collection-card"
+
+    data-category="t-shirts"
+
+    data-subcategory="perfomars"
+
+    data-name="PerfoMARS"
+
+    data-blue-front="images/perfomars-blue-front.png"
+    data-blue-back="images/perfomars-blue-back.png"
+
+    data-green-front="images/perfomars-green-front.png"
+    data-green-back="images/perfomars-green-back.png"
+
+    data-grey-front="images/perfomars-grey-front.png"
+    data-grey-back="images/perfomars-grey-back.png"
+
+    data-red-front="images/perfomars-red-front.png"
+    data-red-back="images/perfomars-red-back.png">
+
+
+    <div class="card-flip">
+
+        <div class="card-inner">
+
+            <img
+                class="card-front"
+                src="images/perfomars-blue-front.png"
+                alt="PerfoMARS Blue Front">
+
+            <img
+                class="card-back"
+                src="images/perfomars-blue-back.png"
+                alt="PerfoMARS Blue Back">
+
+        </div>
+
+    </div>
+
+
+    <h3>
+        PerfoMARS
+    </h3>
+
+</div>
+
+
+        <!-- =====================================
+             CARD 2 — CORPORATE SHIRT
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="shirts"
+
+            data-name="Corporate Shirt"
+
+            data-white-front="polo2.png"
+            data-white-back="polo2-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+
+                    <img
+                        class="card-front"
+                        src="polo2.png"
+                        alt="Front">
+
+
+                    <img
+                        class="card-back"
+                        src="polo2-back.png"
+                        alt="Back">
+
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Corporate Shirts
+            </h3>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             CARD 3 — PREMIUM HOODIE
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="hoodies"
+
+            data-name="Premium Hoodie"
+
+            data-black-front="shirt1.png"
+            data-black-back="shirt1-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+
+                    <img
+                        class="card-front"
+                        src="shirt1.png"
+                        alt="Front">
+
+
+                    <img
+                        class="card-back"
+                        src="shirt1-back.png"
+                        alt="Back">
+
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Hoodies
+            </h3>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             CARD 4 — CORPORATE JACKET
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="bottoms"
+
+            data-name="Corporate Jacket"
+
+            data-black-front="shirt2.png"
+            data-black-back="shirt2-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+
+                    <img
+                        class="card-front"
+                        src="shirt2.png"
+                        alt="Front">
+
+
+                    <img
+                        class="card-back"
+                        src="shirt2-back.png"
+                        alt="Back">
+
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Bottoms
+            </h3>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
      PRODUCT QUICK VIEW MODAL
 ========================================== -->
 
 <div class="product-modal">
 
+
     <div class="product-box">
 
+
         <button class="close-modal">
-
             &times;
-
         </button>
+
+
 
         <!-- LEFT -->
 
         <div class="product-left">
 
+
             <div class="product-image">
+
 
                 <img
                     src=""
                     class="front-img"
                     alt="Front View">
 
+
                 <img
                     src=""
                     class="back-img"
                     alt="Back View">
 
+
             </div>
 
+
         </div>
+
+
 
         <!-- RIGHT -->
 
         <div class="product-right">
 
+
             <h2 id="productTitle">
-
                 Premium Polo
-
             </h2>
 
+
             <p class="product-price">
-
                 ₹499
-
             </p>
 
-            <h4>Colours</h4>
+
+            <h4>
+                Colours
+            </h4>
+
 
             <div class="color-options">
 
-                <button
-                    class="color black active"
-                    data-color="black">
-                </button>
+    <button
+        class="color black active"
+        data-color="black">
+    </button>
 
-                <button
-                    class="color red"
-                    data-color="red">
-                </button>
+    <button
+        class="color white"
+        data-color="white">
+    </button>
 
-                <button
-                    class="color navy"
-                    data-color="navy">
-                </button>
+    <button
+        class="color red"
+        data-color="red">
+    </button>
 
-            </div>
+    <button
+        class="color blue"
+        data-color="blue">
+    </button>
 
-            <h4>Sizes</h4>
+    <button
+        class="color green"
+        data-color="green">
+    </button>
+
+    <button
+        class="color yellow"
+        data-color="yellow">
+    </button>
+<button
+    class="color grey"
+    data-color="grey">
+</button>
+
+</div>
+
+
+
+            <h4>
+                Sizes
+            </h4>
+
 
             <div class="sizes">
 
-                <button>S</button>
-                <button>M</button>
-                <button class="active">L</button>
-                <button>XL</button>
-                <button>XXL</button>
-                <button>XXXL</button>
+
+                <button>
+                    S
+                </button>
+
+
+                <button>
+                    M
+                </button>
+
+
+                <button class="active">
+                    L
+                </button>
+
+
+                <button>
+                    XL
+                </button>
+
+
+                <button>
+                    XXL
+                </button>
+
+
+                <button>
+                    XXXL
+                </button>
+
 
             </div>
 
+
+
             <button class="primary-btn">
-
                 Add to Cart
-
             </button>
+
 
         </div>
 
+
     </div>
 
+
 </div>
+
+
+
 <!-- ==========================================
      ABOUT
 ========================================== -->
 
-<section class="about" id = "about">
+<section class="about" id="about">
+
 
     <div class="about-card">
 
+
         <div class="about-left">
+
 
             <span class="about-tag">
                 CORPORATE APPAREL
             </span>
 
+
             <h2>
-               <span> Uniforms Built</span>
+
+
+                <span>
+                    Uniforms Built
+                </span>
+
+
                 <br>
-               <span> for Your Team.</span>
+
+
+                <span>
+                    for Your Team.
+                </span>
+
+
             </h2>
 
+
             <p>
+
                 Premium polos, T-shirts, uniforms and corporate apparel
                 designed to elevate your brand identity.
+
             </p>
+
+
 
             <div class="about-features">
 
-               <div><span>✓ Custom Printing Done</span></div>
-                <div>✓ Custom Embriodery</div>
-                <div>✓ Bulk Discounts</div>
-                <div>✓ Free Logo Making</div>
+
+                <div>
+
+                    <span>
+                        ✓ Custom Printing Done
+                    </span>
+
+                </div>
+
+
+                <div>
+                    ✓ Custom Embriodery
+                </div>
+
+
+                <div>
+                    ✓ Bulk Discounts
+                </div>
+
+
+                <div>
+                    ✓ Free Logo Making
+                </div>
+
 
             </div>
 
-<button class="primary-btn quote-btn">
-    Get a Quote
-</button>
+
+
+            <button class="primary-btn quote-btn">
+                Get a Quote
+            </button>
+
 
         </div>
+
+
 
         <div class="about-right">
 
@@ -597,150 +1159,280 @@
 
         </div>
 
+
     </div>
 
+
 </section>
+
+
+
+<!-- ==========================================
+     CONTACT
+========================================== -->
+
 <section class="contact" id="contact">
 
+
     <div class="contact-card">
+
 
         <span class="contact-tag">
             CONTACT
         </span>
 
+
         <h2>
+
             Need
+
             <br>
-            <span class="gold-text">Anything Else?</span>
+
+            <span class="gold-text">
+                Anything Else?
+            </span>
+
         </h2>
 
+
         <p>
-            You dream it, we stitch it. 
-Any quality. Any thickness,any style - we got you covered
+
+            You dream it, we stitch it.
+            Any quality. Any thickness, any style -
+            we got you covered
+
         </p>
+
+
 
         <div class="contact-info">
 
+
             <div>
+
                 <i class="fa-solid fa-envelope"></i>
+
                 info@kvidmerch.com
+
             </div>
 
+
             <div>
+
                 <i class="fa-solid fa-phone"></i>
+
                 +91 7411196731
+
             </div>
 
+
             <div>
+
                 <i class="fa-solid fa-location-dot"></i>
+
                 Office Hours: 10:30 Am - 7:30 Pm
+
             </div>
+
 
         </div>
 
-        <button class="primary-btn">
+
+
+        <a
+            href="contact.html"
+            class="primary-btn contact-link">
+
             Drop your requirements here!
-        </button>
+
+        </a>
+
 
     </div>
 
+
 </section>
+
+
+
 <!-- ==========================================
      FOOTER
 ========================================== -->
 
 <footer class="footer">
 
+
     <div class="footer-card">
+
 
         <div class="footer-top">
 
+
             <div class="footer-brand">
 
-                <h2>KVID</h2>
+
+                <h2>
+                    KVID
+                </h2>
+
 
                 <p>
-                    Premium Corporate Apparel crafted for modern businesses.
+                    Premium Corporate Apparel crafted
+                    for modern businesses.
                 </p>
 
+
             </div>
+
+
 
             <div class="footer-links">
 
-                <a href="#hero">Home</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+
+                <a href="#hero">
+                    Home
+                </a>
+
+
+                <a href="about.html">
+                    About
+                </a>
+
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
 
             </div>
+
+
 
             <div class="footer-social">
 
-                <a href="https://www.instagram.com/kvidmerch?igsh=MncxeWIycmRmcWo4"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/kvid-merch-b28121424?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:info@kvidmerch.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.facebook.com/share/1Ea1J1F7zX/" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-    </a>
+
+                <a
+                    href="https://www.instagram.com/kvidmerch?igsh=MncxeWIycmRmcWo4">
+
+                    <i class="fab fa-instagram"></i>
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/kvid-merch-b28121424?utm_source=share_via&utm_content=profile&utm_medium=member_android">
+
+                    <i class="fab fa-linkedin-in"></i>
+
+                </a>
+
+
+                <a href="mailto:info@kvidmerch.com">
+
+                    <i class="fas fa-envelope"></i>
+
+                </a>
+
+
+                <a
+                    href="https://www.facebook.com/share/1Ea1J1F7zX/"
+                    target="_blank">
+
+                    <i class="fab fa-facebook-f"></i>
+
+                </a>
+
 
             </div>
 
+
         </div>
+
+
 
         <div class="footer-divider"></div>
 
+
+
         <div class="footer-bottom">
 
-            <p>© 2026 KVID. All Rights Reserved.</p>
+
+            <p>
+                © 2026 KVID. All Rights Reserved.
+            </p>
 
 
         </div>
 
+
     </div>
 
+
 </footer>
+
+
+
 <!-- ==========================================
      QUOTE MODAL
 ========================================== -->
 
 <div class="quote-modal">
 
+
     <div class="quote-box">
 
-        <button class="close-quote">&times;</button>
 
-        <h2>Request a Quote</h2>
+        <button class="close-quote">
+            &times;
+        </button>
 
-        <p>Tell us about your requirements.</p>
+
+        <h2>
+            Request a Quote
+        </h2>
+
+
+        <p>
+            Tell us about your requirements.
+        </p>
+
+
 
         <input
             type="text"
             id="customerName"
             placeholder="Your Name">
 
+
         <input
             type="text"
             id="companyName"
             placeholder="Company Name">
+
 
         <input
             type="tel"
             id="phoneNumber"
             placeholder="Phone Number">
 
+
         <textarea
             id="customerMessage"
             rows="6"
             placeholder="Tell us what you need..."></textarea>
 
+
         <button id="sendWhatsapp">
-
             Send via WhatsApp
-
         </button>
+
 
     </div>
 
+
 </div>
+
+
 
 <!-- ==========================================
      SCRIPTS
@@ -753,5 +1445,7 @@ Any quality. Any thickness,any style - we got you covered
 <script src="js/loader.js"></script>
 <script src="js/quote.js"></script>
 
+
 </body>
+
 </html>

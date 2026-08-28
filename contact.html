@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | KVID</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+
+    <style>
+
+        /* ===========================================
+           CONTACT PAGE
+        =========================================== */
+
+        .contact-page {
+
+            min-height:100vh;
+
+            padding:160px 8% 100px;
+
+            background:#080808;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+        }
+
+
+        .contact-page-card {
+
+            width:100%;
+
+            max-width:1200px;
+
+            min-height:600px;
+
+            padding:80px;
+
+            background:#101010;
+
+            border:1px solid rgba(255,255,255,.08);
+
+            border-radius:30px;
+
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:80px;
+
+        }
+
+
+        /* ===========================================
+           LEFT
+        =========================================== */
+
+        .contact-page-left {
+
+            display:flex;
+
+            flex-direction:column;
+
+            justify-content:center;
+
+        }
+
+
+        .contact-page-tag {
+
+            font-size:.75rem;
+
+            letter-spacing:5px;
+
+            color:#888;
+
+            margin-bottom:25px;
+
+        }
+
+
+        .contact-page-left h1 {
+
+            margin:0;
+
+            font-size:clamp(3rem,6vw,5.5rem);
+
+            font-weight:400;
+
+            line-height:1;
+
+            color:white;
+
+        }
+
+
+        .contact-page-left h1 span {
+
+            color:#d8ad58;
+
+        }
+
+
+        .contact-page-left p {
+
+            margin-top:30px;
+
+            max-width:550px;
+
+            color:#999;
+
+            font-size:1.05rem;
+
+            line-height:1.8;
+
+        }
+
+
+        .contact-details {
+
+            margin-top:45px;
+
+            display:flex;
+
+            flex-direction:column;
+
+            gap:25px;
+
+        }
+
+
+        .contact-detail {
+
+            display:flex;
+
+            align-items:center;
+
+            gap:20px;
+
+            color:#ddd;
+
+        }
+
+
+        .contact-detail i {
+
+            width:25px;
+
+            color:#d8ad58;
+
+        }
+
+
+        /* ===========================================
+           FORM
+        =========================================== */
+
+        .contact-form {
+
+            display:flex;
+
+            flex-direction:column;
+
+            justify-content:center;
+
+            gap:18px;
+
+        }
+
+
+        .contact-form h2 {
+
+            color:white;
+
+            font-size:2rem;
+
+            font-weight:500;
+
+            margin-bottom:10px;
+
+        }
+
+
+        .contact-form input,
+        .contact-form textarea {
+
+            width:100%;
+
+            box-sizing:border-box;
+
+            padding:18px 20px;
+
+            background:#181818;
+
+            border:1px solid rgba(255,255,255,.1);
+
+            border-radius:10px;
+
+            color:white;
+
+            font-family:inherit;
+
+            font-size:1rem;
+
+            outline:none;
+
+        }
+
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+
+            border-color:#d8ad58;
+
+        }
+
+
+        .contact-form textarea {
+
+            min-height:160px;
+
+            resize:vertical;
+
+        }
+
+
+        .contact-form button {
+
+            width:100%;
+
+            padding:18px;
+
+            border:none;
+
+            border-radius:30px;
+
+            background:white;
+
+            color:black;
+
+            font-size:1rem;
+
+            font-weight:500;
+
+            cursor:pointer;
+
+            transition:.3s;
+
+        }
+
+
+        .contact-form button:hover {
+
+            background:#d8ad58;
+
+            color:black;
+
+        }
+
+
+        /* ===========================================
+           MOBILE
+        =========================================== */
+
+        @media(max-width:768px) {
+
+            .contact-page {
+
+                padding:120px 20px 60px;
+
+            }
+
+
+            .contact-page-card {
+
+                padding:40px 25px;
+
+                grid-template-columns:1fr;
+
+                gap:50px;
+
+            }
+
+
+            .contact-page-left h1 {
+
+                font-size:3.5rem;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+    <div class="nav-wrapper container">
+
+        <div class="logo">
+            KVID
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="index.html#hero">
+                Home
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+        <a
+            href="contact.html"
+            class="nav-btn">
+
+            Get Quote
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- ==========================================
+     CONTACT PAGE
+========================================== -->
+
+<main class="contact-page">
+
+    <div class="contact-page-card">
+
+
+        <!-- ======================================
+             LEFT
+        ======================================= -->
+
+        <div class="contact-page-left">
+
+            <span class="contact-page-tag">
+                CONTACT KVID
+            </span>
+
+            <h1>
+
+                Let's Customise
+                <br>
+
+                <span>Your Clothing ideas.</span>
+
+            </h1>
+
+            <p>
+An easy way to bring comfort to your life is through quality clothes
+            </p>
+
+
+            <div class="contact-details">
+
+                <div class="contact-detail">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <span>
+                        info@kvidmerch.com
+                    </span>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <span>
+                        +91 7411196731
+                    </span>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    <span>
+                        10:30 AM - 7:30 PM
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             FORM
+        ======================================= -->
+
+        <div class="contact-form">
+
+            <h2>
+                Send us your requirements
+            </h2>
+
+            <input
+                type="text"
+                placeholder="Your Name">
+
+            <input
+                type="text"
+                placeholder="Company Name">
+
+            <input
+                type="email"
+                placeholder="Email Address">
+
+            <input
+                type="tel"
+                placeholder="Phone Number">
+
+            <textarea
+                placeholder="Tell us what you need..."></textarea>
+
+            <button>
+                Send Requirement
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+</body>
+
+</html>

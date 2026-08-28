@@ -51,7 +51,8 @@
         linear-gradient(
             90deg,
             rgba(255,255,255,.02) 1px,
-            transparent 1px);
+            transparent 1px
+        );
 
     background-size:60px 60px;
 
@@ -208,5 +209,220 @@
     position:relative;
 
     z-index:2;
+
+}
+
+
+/* ===========================================
+   TABLET / IPAD
+=========================================== */
+
+@media (max-width:992px){
+
+    .footer{
+
+        padding:0 5% 50px;
+
+    }
+
+    .footer-card{
+
+        padding:50px;
+
+        border-radius:28px;
+
+    }
+
+    .footer-top{
+
+        grid-template-columns:1.5fr 1fr;
+
+        gap:45px;
+
+    }
+
+    .footer-brand h2{
+
+        font-size:2.5rem;
+
+    }
+
+    .footer-social{
+
+        justify-content:flex-start;
+
+    }
+
+    .footer-bottom{
+
+        gap:25px;
+
+    }
+
+}
+
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media (max-width:768px){
+
+    .footer{
+
+        padding:0 18px 35px;
+
+    }
+
+    .footer-card{
+
+        padding:35px 24px;
+
+        border-radius:22px;
+
+    }
+
+    .footer-top{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+    }
+
+    .footer-brand h2{
+
+        font-size:2.3rem;
+
+        margin-bottom:14px;
+
+    }
+
+    .footer-brand p{
+
+        font-size:.9rem;
+
+        line-height:1.7;
+
+    }
+
+    .footer-links{
+
+        gap:14px;
+
+    }
+
+    .footer-links a{
+
+        font-size:.9rem;
+
+    }
+
+    .footer-social{
+
+        justify-content:flex-start;
+
+        gap:12px;
+
+    }
+
+    .footer-social a{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .footer-divider{
+
+        margin:35px 0;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+        font-size:.8rem;
+
+    }
+
+}
+
+
+/* ===========================================
+   SMALL MOBILE
+=========================================== */
+
+@media (max-width:480px){
+
+    .footer{
+
+        padding:0 12px 25px;
+
+    }
+
+    .footer-card{
+
+        padding:28px 18px;
+
+        border-radius:18px;
+
+    }
+
+    .footer-brand h2{
+
+        font-size:2rem;
+
+    }
+
+    .footer-brand p{
+
+        font-size:.84rem;
+
+    }
+
+    .footer-links{
+
+        gap:12px;
+
+    }
+
+    .footer-links a{
+
+        font-size:.84rem;
+
+    }
+
+    .footer-social{
+
+        gap:10px;
+
+    }
+
+    .footer-social a{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .footer-divider{
+
+        margin:28px 0;
+
+    }
+
+    .footer-bottom{
+
+        font-size:.75rem;
+
+    }
 
 }

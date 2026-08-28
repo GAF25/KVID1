@@ -1,40 +1,31 @@
+/* ===========================================
+   LOADER
+=========================================== */
 
-.loader-logo{
-
-    display:flex;
-
-    gap:35px;
-
-    overflow:hidden;
-}
-
-.loader-logo span{
-
-    color:white;
-
-    font-size:50rem;
-
-    font-weight:700;
-
-    letter-spacing:8px;
-
-    opacity:0;
-
-    transform:translateY(80px);
-}
 #loader{
 
     position:fixed;
+
     inset:0;
 
     background:#050505;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     z-index:10000;
+
+    overflow:hidden;
+
 }
+
+
+/* ===========================================
+   LOADER INNER
+=========================================== */
 
 .loader-inner{
 
@@ -47,7 +38,13 @@
     align-items:center;
 
     gap:40px;
+
 }
+
+
+/* ===========================================
+   LOADER LINE
+=========================================== */
 
 .loader-line{
 
@@ -58,7 +55,13 @@
     background:white;
 
     opacity:.8;
+
 }
+
+
+/* ===========================================
+   LOADER LOGO
+=========================================== */
 
 .loader-logo{
 
@@ -67,7 +70,17 @@
     gap:35px;
 
     overflow:hidden;
+
+    align-items:center;
+
+    justify-content:center;
+
 }
+
+
+/* ===========================================
+   LOADER LOGO LETTERS
+=========================================== */
 
 .loader-logo span{
 
@@ -76,6 +89,8 @@
     font-weight:700;
 
     letter-spacing:10px;
+
+    line-height:1;
 
     opacity:0;
 
@@ -91,7 +106,135 @@
     );
 
     -webkit-background-clip:text;
+
     background-clip:text;
+
     -webkit-text-fill-color:transparent;
+
+}
+
+
+/* ===========================================
+   TABLET
+=========================================== */
+
+@media (max-width:992px){
+
+    .loader-inner{
+
+        width:80vw;
+
+        gap:32px;
+
+    }
+
+    .loader-logo{
+
+        gap:24px;
+
+    }
+
+    .loader-logo span{
+
+        font-size:18rem;
+
+        letter-spacing:8px;
+
+    }
+
+}
+
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media (max-width:768px){
+
+    .loader-inner{
+
+        width:85vw;
+
+        gap:26px;
+
+    }
+
+    .loader-logo{
+
+        gap:14px;
+
+        max-width:100%;
+
+    }
+
+    .loader-logo span{
+
+        font-size:11rem;
+
+        letter-spacing:5px;
+
+    }
+
+}
+
+
+/* ===========================================
+   SMALL MOBILE
+=========================================== */
+
+@media (max-width:480px){
+
+    .loader-inner{
+
+        width:88vw;
+
+        gap:22px;
+
+    }
+
+    .loader-logo{
+
+        gap:8px;
+
+    }
+
+    .loader-logo span{
+
+        font-size:8rem;
+
+        letter-spacing:3px;
+
+    }
+
+}
+
+
+/* ===========================================
+   VERY SMALL PHONES
+=========================================== */
+
+@media (max-width:360px){
+
+    .loader-inner{
+
+        width:90vw;
+
+        gap:18px;
+
+    }
+
+    .loader-logo{
+
+        gap:5px;
+
+    }
+
+    .loader-logo span{
+
+        font-size:6.5rem;
+
+        letter-spacing:2px;
+
+    }
 
 }
