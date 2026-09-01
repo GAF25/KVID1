@@ -148,17 +148,11 @@
 .gold-text{
 
     background:linear-gradient(
-
         135deg,
-
         #FFF8E6 0%,
-
         #F1D08D 30%,
-
         #D4A85B 60%,
-
         #F7E6BF 100%
-
     );
 
     -webkit-background-clip:text;
@@ -458,16 +452,17 @@
     transform-style:preserve-3d;
 
     transition:
-        transform .8s cubic-bezier(.22,.61,.36,1);
+        transform .8s
+        cubic-bezier(.22,.61,.36,1);
 
 }
 
 
 /* ===========================================
-   FLIPPED STATE
+   FIXED FLIP STATE
 =========================================== */
 
-.collection-card.flipped .card-inner{
+.card-inner.flipped{
 
     transform:rotateY(180deg);
 
@@ -498,13 +493,6 @@
 }
 
 
-.card-front{
-
-    transform:rotateY(0deg);
-
-}
-
-
 .card-back{
 
     transform:rotateY(180deg);
@@ -523,21 +511,7 @@
 }
 
 
-.collection-card.flipped:hover .card-front{
-
-    transform:rotateY(180deg) scale(1.03);
-
-}
-
-
 .collection-card:hover .card-back{
-
-    transform:rotateY(180deg);
-
-}
-
-
-.collection-card.flipped:hover .card-back{
 
     transform:rotateY(180deg) scale(1.03);
 
@@ -581,12 +555,11 @@
 
     inset:0;
 
-    background:
-        linear-gradient(
-            180deg,
-            transparent,
-            rgba(255,255,255,.03)
-        );
+    background:linear-gradient(
+        180deg,
+        transparent,
+        rgba(255,255,255,.03)
+    );
 
     opacity:0;
 
@@ -817,9 +790,7 @@
 }
 
 
-/* ===========================================
-   COLOUR BUTTONS
-=========================================== */
+/* White */
 
 .color.white{
 
@@ -830,61 +801,42 @@
 }
 
 
-.color.black{
+/* Black */
+
+.black{
 
     background:#000;
 
 }
 
 
-.color.red{
+.red{
 
     background:#d62a2a;
 
 }
 
 
-.color.navy{
+.navy{
 
     background:#1b3568;
 
 }
 
 
-.color.blue{
+.blue{
 
     background:#174ea6;
 
 }
 
 
-.color.green{
+.green{
 
     background:#1f6b3a;
 
 }
-.color.grey{
 
-    background:#808080;
-
-}
-
-/* ===========================================
-   YELLOW — SNAPPY
-=========================================== */
-
-.color.yellow{
-
-    background:#f2c400;
-
-    border:2px solid rgba(255,255,255,.15);
-
-}
-
-
-/* ===========================================
-   PRODUCT IMAGE HOVER
-=========================================== */
 
 .product-image:hover .front-img{
 
@@ -1074,7 +1026,6 @@
     .collections{
 
         padding-left:5%;
-
         padding-right:5%;
 
     }

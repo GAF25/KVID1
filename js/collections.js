@@ -3,7 +3,6 @@
 // ===========================================
 
 const cards = document.querySelectorAll(".collection-card");
-
 const modal = document.querySelector(".product-modal");
 const closeBtn = document.querySelector(".close-modal");
 
@@ -16,43 +15,159 @@ const colorButtons = document.querySelectorAll(".color");
 const sizeButtons = document.querySelectorAll(".sizes button");
 
 const filterButtons = document.querySelectorAll(".filter-btn");
-
 const subGroups = document.querySelectorAll(".subcategory-group");
-
 const subFilters = document.querySelectorAll(".sub-filter");
 
 let currentProduct = null;
 
 
 // ===========================================
-// COLOR CACHE
+// MAIN COLLECTIONS
+// These are the categories shown under "All"
 // ===========================================
 
-const coloredImages = {};
+const mainCollectionCategories = [
+    "t-shirts",
+    "polos",
+    "shirts",
+    "bottoms",
+    "hoodies",
+    "accessories"
+];
 
 
 // ===========================================
-// SHIRT COLORS
+// HIDE ALL SUB-FILTER GROUPS
 // ===========================================
 
-const shirtColors = {
+function hideAllSubGroups() {
 
-    white: "#ffffff",
+    subGroups.forEach(group => {
+        group.classList.remove("active");
+    });
 
-    black: "#111111",
+}
 
-    red: "#d90000",
 
-    navy: "#18305d",
+// ===========================================
+// SHOW MAIN COLLECTIONS
+// Under "All", show only one product/card
+// from each main category
+// ===========================================
 
-    blue: "#174ea6",
+function showMainCollections() {
 
-    green: "#1f6b3a",
+    const shownCategories = new Set();
 
-    yellow: "#f2c400",
-grey: "#808080"
+    cards.forEach(card => {
 
-};
+        const category = card.dataset.category;
+
+        if (
+            mainCollectionCategories.includes(category) &&
+            !shownCategories.has(category)
+        ) {
+
+            card.style.display = "block";
+            shownCategories.add(category);
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ===========================================
+// SHOW ALL PRODUCTS IN A CATEGORY
+// ===========================================
+
+function showCategory(category) {
+
+    cards.forEach(card => {
+
+        if (card.dataset.category === category) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ===========================================
+// SHOW SELECTED SUB-FILTER GROUP
+// ===========================================
+
+function showSubGroup(category) {
+
+    hideAllSubGroups();
+
+    const group = document.querySelector(
+        `.subcategory-group[data-parent="${category}"]`
+    );
+
+    if (!group) return;
+
+    group.classList.add("active");
+
+    // Reset active state
+    group.querySelectorAll(".sub-filter").forEach(button => {
+        button.classList.remove("active");
+    });
+
+    // Activate "All"
+    const allButton = group.querySelector(
+        '.sub-filter[data-subfilter="all"]'
+    );
+
+    if (allButton) {
+        allButton.classList.add("active");
+    }
+
+}
+
+
+// ===========================================
+// FILTER BY SUBCATEGORY
+// ===========================================
+
+function filterBySubcategory(category, subcategory) {
+
+    cards.forEach(card => {
+
+        const cardCategory = card.dataset.category;
+        const cardSubcategory = card.dataset.subcategory;
+
+        if (
+            cardCategory === category &&
+            (
+                subcategory === "all" ||
+                cardSubcategory === subcategory
+            )
+        ) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
 
 
 // ===========================================
@@ -61,10 +176,9 @@ grey: "#808080"
 
 cards.forEach(card => {
 
-    const inner =
-        card.querySelector(".card-inner");
+    const inner = card.querySelector(".card-inner");
 
-    if(!inner) return;
+    if (!inner) return;
 
     card.addEventListener("mouseenter", () => {
 
@@ -82,687 +196,108 @@ cards.forEach(card => {
 
 
 // ===========================================
-// MAIN FILTER
-// ===========================================
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        filterButtons.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        const category =
-            button.dataset.filter;
-
-
-        cards.forEach(card => {
-
-            if(
-                category === "all" ||
-                card.dataset.category === category
-            ){
-
-                card.style.display = "block";
-
-            }
-            else{
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-
-        subGroups.forEach(group =>
-            group.classList.remove("active")
-        );
-
-
-        if(category !== "all"){
-
-            const group =
-                document.querySelector(
-                    `.subcategory-group[data-parent="${category}"]`
-                );
-
-            if(group){
-
-                group.classList.add("active");
-
-
-                const allButton =
-                    group.querySelector(
-                        '.sub-filter[data-subfilter="all"]'
-                    );
-
-
-                group.querySelectorAll(".sub-filter")
-                    .forEach(btn =>
-                        btn.classList.remove("active")
-                    );
-
-
-                if(allButton){
-
-                    allButton.classList.add("active");
-
-                }
-
-
-                cards.forEach(card => {
-
-                    if(
-                        card.dataset.category === category
-                    ){
-
-                        card.style.display = "block";
-
-                    }
-
-                });
-
-            }
-
-        }
-
-    });
-
-});
-
-
-// ===========================================
-// SUB FILTER
-// ===========================================
-
-subFilters.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const parent =
-            button.parentElement;
-
-
-        parent.querySelectorAll(".sub-filter")
-            .forEach(btn =>
-                btn.classList.remove("active")
-            );
-
-
-        button.classList.add("active");
-
-
-        const subcategory =
-            button.dataset.subfilter || "all";
-
-
-        const mainCategory =
-            parent.dataset.parent;
-
-
-        cards.forEach(card => {
-
-            const matchesCategory =
-                card.dataset.category === mainCategory;
-
-
-            const matchesSubcategory =
-                subcategory === "all" ||
-                card.dataset.subcategory === subcategory;
-
-
-            if(
-                matchesCategory &&
-                matchesSubcategory
-            ){
-
-                card.style.display = "block";
-
-            }
-            else{
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-    });
-
-});
-
-
-// ===========================================
-// LOAD IMAGE
-// ===========================================
-
-function loadImage(src){
-
-    return new Promise((resolve,reject)=>{
-
-        const image = new Image();
-
-        image.onload = () =>
-            resolve(image);
-
-        image.onerror = () =>
-            reject(
-                new Error(
-                    "Could not load image: " + src
-                )
-            );
-
-        image.src = src;
-
-    });
-
-}
-
-
-// ===========================================
-// COLORIZE TRANSPARENT PNG
-// ===========================================
-
-async function colorizePNG(src, color){
-
-    const cacheKey =
-        src + "_" + color;
-
-
-    if(coloredImages[cacheKey]){
-
-        return coloredImages[cacheKey];
-
-    }
-
-
-    const image =
-        await loadImage(src);
-
-
-    const canvas =
-        document.createElement("canvas");
-
-
-    canvas.width =
-        image.naturalWidth;
-
-    canvas.height =
-        image.naturalHeight;
-
-
-    const ctx =
-        canvas.getContext("2d", {
-            willReadFrequently: true
-        });
-
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    ctx.drawImage(
-        image,
-        0,
-        0
-    );
-
-
-    const imageData =
-        ctx.getImageData(
-            0,
-            0,
-            canvas.width,
-            canvas.height
-        );
-
-
-    const pixels =
-        imageData.data;
-
-
-    const rgb =
-        hexToRGB(color);
-
-
-    for(
-        let i = 0;
-        i < pixels.length;
-        i += 4
-    ){
-
-        const r =
-            pixels[i];
-
-        const g =
-            pixels[i + 1];
-
-        const b =
-            pixels[i + 2];
-
-        const a =
-            pixels[i + 3];
-
-
-        if(a === 0){
-
-            continue;
-
-        }
-
-
-        const brightness =
-            (0.299 * r) +
-            (0.587 * g) +
-            (0.114 * b);
-
-
-        if(brightness < 80){
-
-            continue;
-
-        }
-
-
-        let mask =
-            (brightness - 80) / 100;
-
-
-        mask =
-            Math.max(
-                0,
-                Math.min(1, mask)
-            );
-
-
-        if(brightness > 180){
-
-            mask = 1;
-
-        }
-
-
-        const light =
-            brightness / 255;
-
-
-        const newR =
-            rgb.r *
-            (0.55 + light * 0.45);
-
-
-        const newG =
-            rgb.g *
-            (0.55 + light * 0.45);
-
-
-        const newB =
-            rgb.b *
-            (0.55 + light * 0.45);
-
-
-        pixels[i] =
-            r * (1 - mask) +
-            newR * mask;
-
-
-        pixels[i + 1] =
-            g * (1 - mask) +
-            newG * mask;
-
-
-        pixels[i + 2] =
-            b * (1 - mask) +
-            newB * mask;
-
-    }
-
-
-    ctx.putImageData(
-        imageData,
-        0,
-        0
-    );
-
-
-    const result =
-        canvas.toDataURL("image/png");
-
-
-    coloredImages[cacheKey] =
-        result;
-
-
-    return result;
-
-}
-
-
-// ===========================================
-// HEX → RGB
-// ===========================================
-
-function hexToRGB(hex){
-
-    hex =
-        hex.replace("#","");
-
-
-    return {
-
-        r: parseInt(
-            hex.substring(0,2),
-            16
-        ),
-
-        g: parseInt(
-            hex.substring(2,4),
-            16
-        ),
-
-        b: parseInt(
-            hex.substring(4,6),
-            16
-        )
-
-    };
-
-}
-
-
-// ===========================================
-// APPLY CORPORATE SHIRT COLOR
-// ===========================================
-
-async function applyCorporateColor(color){
-
-    if(!currentProduct) return;
-
-
-    const whiteFront =
-        currentProduct.dataset.whiteFront;
-
-
-    const whiteBack =
-        currentProduct.dataset.whiteBack;
-
-
-    if(!whiteFront || !whiteBack){
-
-        return;
-
-    }
-
-
-    if(color === "white"){
-
-        frontImg.src =
-            whiteFront;
-
-        backImg.src =
-            whiteBack;
-
-        return;
-
-    }
-
-
-    const selectedColor =
-        shirtColors[color];
-
-
-    if(!selectedColor){
-
-        return;
-
-    }
-
-
-    try{
-
-        const [
-            coloredFront,
-            coloredBack
-        ] = await Promise.all([
-
-            colorizePNG(
-                whiteFront,
-                selectedColor
-            ),
-
-            colorizePNG(
-                whiteBack,
-                selectedColor
-            )
-
-        ]);
-
-
-        frontImg.src =
-            coloredFront;
-
-        backImg.src =
-            coloredBack;
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Could not colorize shirt:",
-            error
-        );
-
-    }
-
-}
-
-
-// ===========================================
-// GET AVAILABLE PRODUCT COLORS
-// ===========================================
-
-function getProductColors(product){
-
-    if(!product){
-
-        return [];
-
-    }
-
-
-    const colors = [];
-
-
-    [
-        "black",
-        "blue",
-        "green",
-        "white",
-        "red",
-        "yellow",
-"grey",
-        "navy"
-    ].forEach(color => {
-
-        const front =
-            product.dataset[
-                `${color}Front`
-            ];
-
-
-        const back =
-            product.dataset[
-                `${color}Back`
-            ];
-
-
-        if(front && back){
-
-            colors.push(color);
-
-        }
-
-    });
-
-
-    return colors;
-
-}
-
-
-// ===========================================
-// UPDATE COLOR BUTTONS
-// ===========================================
-
-function updateColorButtons(product){
-
-    const availableColors =
-        getProductColors(product);
-
-
-    colorButtons.forEach(button => {
-
-        const color =
-            button.dataset.color;
-
-
-        if(
-            availableColors.includes(color)
-        ){
-
-            button.style.display = "";
-
-        }
-        else{
-
-            button.style.display = "none";
-
-        }
-
-
-        button.classList.remove("active");
-
-    });
-
-
-    const defaultColor =
-        availableColors.includes("black")
-            ? "black"
-            : availableColors[0];
-
-
-    if(defaultColor){
-
-        const defaultButton =
-            document.querySelector(
-                `.color[data-color="${defaultColor}"]`
-            );
-
-
-        if(defaultButton){
-
-            defaultButton.classList.add("active");
-
-        }
-
-    }
-
-
-    return defaultColor;
-
-}
-
-
-// ===========================================
-// OPEN MODAL
+// OPEN PRODUCT MODAL
 // ===========================================
 
 cards.forEach(card => {
 
     card.addEventListener("click", () => {
 
-        currentProduct =
-            card;
+        currentProduct = card;
+
+        productTitle.textContent = card.dataset.name;
 
 
-        productTitle.textContent =
-            card.dataset.name;
+        // -----------------------------------
+        // Find first available colour
+        // -----------------------------------
 
+        const availableColors = [
+            "black",
+            "white",
+            "red",
+            "blue",
+            "green",
+            "yellow",
+            "grey",
+            "purple"
+        ];
 
-        const availableColors =
-            getProductColors(card);
+        let defaultColor = null;
 
+        for (const color of availableColors) {
 
-        const defaultColor =
-            updateColorButtons(card);
+            const front =
+                card.dataset[`${color}Front`];
 
+            const back =
+                card.dataset[`${color}Back`];
 
-        const initialColor =
-            defaultColor ||
-            (
-                availableColors.includes("white")
-                    ? "white"
-                    : null
-            );
+            if (front && back) {
 
-
-        if(initialColor){
-
-            const initialFront =
-                card.dataset[
-                    `${initialColor}Front`
-                ];
-
-
-            const initialBack =
-                card.dataset[
-                    `${initialColor}Back`
-                ];
-
-
-            if(
-                initialFront &&
-                initialBack
-            ){
-
-                frontImg.src =
-                    initialFront;
-
-                backImg.src =
-                    initialBack;
+                defaultColor = color;
+                break;
 
             }
 
         }
-        else{
+
+
+        // -----------------------------------
+        // Set default product images
+        // -----------------------------------
+
+        if (defaultColor) {
 
             frontImg.src =
-                card.dataset.blackFront || "";
+                card.dataset[`${defaultColor}Front`];
 
             backImg.src =
-                card.dataset.blackBack || "";
+                card.dataset[`${defaultColor}Back`];
 
         }
 
+
+        // Reset opacity
 
         frontImg.style.opacity = "";
         backImg.style.opacity = "";
 
 
+        // -----------------------------------
+        // Reset colour buttons
+        // -----------------------------------
+
+        colorButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        if (defaultColor) {
+
+            const defaultButton =
+                document.querySelector(
+                    `.color[data-color="${defaultColor}"]`
+                );
+
+            if (defaultButton) {
+
+                defaultButton.classList.add("active");
+
+            }
+
+        }
+
+
+        // -----------------------------------
+        // Open modal
+        // -----------------------------------
+
         modal.classList.add("active");
 
-
-        document.body.style.overflow =
-            "hidden";
+        document.body.style.overflow = "hidden";
 
     });
 
@@ -773,48 +308,42 @@ cards.forEach(card => {
 // CLOSE MODAL
 // ===========================================
 
-function closeModal(){
+function closeModal() {
 
     modal.classList.remove("active");
 
-    document.body.style.overflow =
-        "auto";
+    document.body.style.overflow = "auto";
 
 }
 
 
-closeBtn.addEventListener(
-    "click",
-    closeModal
-);
+closeBtn.addEventListener("click", closeModal);
 
 
-modal.addEventListener(
-    "click",
-    e => {
+// Close when clicking outside modal
 
-        if(e.target === modal){
+modal.addEventListener("click", e => {
 
-            closeModal();
+    if (e.target === modal) {
 
-        }
+        closeModal();
 
     }
-);
+
+});
 
 
-document.addEventListener(
-    "keydown",
-    e => {
+// Close with Escape
 
-        if(e.key === "Escape"){
+document.addEventListener("keydown", e => {
 
-            closeModal();
+    if (e.key === "Escape") {
 
-        }
+        closeModal();
 
     }
-);
+
+});
 
 
 // ===========================================
@@ -823,19 +352,15 @@ document.addEventListener(
 
 sizeButtons.forEach(button => {
 
-    button.addEventListener(
-        "click",
-        () => {
+    button.addEventListener("click", () => {
 
-            sizeButtons.forEach(btn =>
-                btn.classList.remove("active")
-            );
+        sizeButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
 
+        button.classList.add("active");
 
-            button.classList.add("active");
-
-        }
-    );
+    });
 
 });
 
@@ -846,81 +371,187 @@ sizeButtons.forEach(button => {
 
 colorButtons.forEach(button => {
 
-    button.addEventListener(
-        "click",
-        async () => {
+    button.addEventListener("click", () => {
 
-            if(!currentProduct){
+        if (!currentProduct) return;
 
-                return;
+        const color = button.dataset.color;
 
-            }
+        const front =
+            currentProduct.dataset[`${color}Front`];
 
-
-            const color =
-                button.dataset.color;
+        const back =
+            currentProduct.dataset[`${color}Back`];
 
 
-            const front =
-                currentProduct.dataset[
-                    `${color}Front`
-                ];
+        // Product doesn't have this colour
+
+        if (!front || !back) return;
 
 
-            const back =
-                currentProduct.dataset[
-                    `${color}Back`
-                ];
+        colorButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
 
 
-            if(!front || !back){
+        // Fade out
 
-                return;
+        frontImg.style.transition =
+            "opacity .2s ease";
 
-            }
+        backImg.style.transition =
+            "opacity .2s ease";
 
-
-            colorButtons.forEach(btn =>
-                btn.classList.remove("active")
-            );
-
-
-            button.classList.add("active");
+        frontImg.style.opacity = "0";
+        backImg.style.opacity = "0";
 
 
-            frontImg.style.transition =
-                "opacity .2s ease";
+        setTimeout(() => {
 
+            frontImg.src = front;
+            backImg.src = back;
 
-            backImg.style.transition =
-                "opacity .2s ease";
+            frontImg.style.opacity = "";
+            backImg.style.opacity = "";
 
+        }, 200);
 
-            frontImg.style.opacity =
-                "0";
-
-
-            backImg.style.opacity =
-                "0";
-
-
-            setTimeout(() => {
-
-                frontImg.src =
-                    front;
-
-                backImg.src =
-                    back;
-
-                frontImg.style.opacity =
-                    "";
-
-                backImg.style.opacity =
-                    "";
-
-            }, 200);
-
-        }
-    );
+    });
 
 });
+
+
+// ===========================================
+// MAIN FILTERS
+// ===========================================
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+
+        // -----------------------------------
+        // Active main filter
+        // -----------------------------------
+
+        filterButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+
+        const category =
+            button.dataset.filter;
+
+
+        // ===================================
+        // ALL
+        // ===================================
+
+        if (category === "all") {
+
+            showMainCollections();
+
+            hideAllSubGroups();
+
+            return;
+
+        }
+
+
+        // ===================================
+        // MAIN CATEGORY
+        // ===================================
+
+        showCategory(category);
+
+        showSubGroup(category);
+
+    });
+
+});
+
+
+// ===========================================
+// SUB FILTERS
+// ===========================================
+
+subFilters.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+
+        const parent =
+            button.closest(".subcategory-group");
+
+        if (!parent) return;
+
+
+        const category =
+            parent.dataset.parent;
+
+        const subcategory =
+            button.dataset.subfilter || "all";
+
+
+        // -----------------------------------
+        // Active sub-filter
+        // -----------------------------------
+
+        parent.querySelectorAll(".sub-filter").forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+
+        // -----------------------------------
+        // Filter products
+        // -----------------------------------
+
+        filterBySubcategory(
+            category,
+            subcategory
+        );
+
+    });
+
+});
+
+
+// ===========================================
+// INITIAL STATE
+// ===========================================
+
+// Start with only the main collections visible
+
+showMainCollections();
+
+hideAllSubGroups();
+
+
+// Make "All" main filter active
+
+filterButtons.forEach(button => {
+
+    button.classList.remove("active");
+
+});
+
+
+const allMainButton =
+    document.querySelector(
+        '.filter-btn[data-filter="all"]'
+    );
+
+
+if (allMainButton) {
+
+    allMainButton.classList.add("active");
+
+}
