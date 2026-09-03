@@ -35,6 +35,61 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/footer.css">
 
+
+<style>
+/* CART */
+.cart-count { display:inline-flex; align-items:center; justify-content:center; min-width:20px; height:20px; padding:0 6px; margin-left:7px; border-radius:999px; background:#c9a86a; color:#111; font-size:11px; font-weight:700; line-height:1; vertical-align:middle; }
+.cart-overlay { position:fixed; inset:0; background:rgba(0,0,0,.58); backdrop-filter:blur(4px); opacity:0; visibility:hidden; transition:opacity .3s ease, visibility .3s ease; z-index:9998; }
+.cart-overlay.active { opacity:1; visibility:visible; }
+.cart-drawer { position:fixed; top:0; right:0; width:min(440px, 92vw); height:100vh; background:#111; color:#fff; border-left:1px solid rgba(201,168,106,.25); box-shadow:-20px 0 60px rgba(0,0,0,.35); transform:translateX(100%); transition:transform .35s cubic-bezier(.22,1,.36,1); z-index:9999; display:flex; flex-direction:column; }
+.cart-drawer.active { transform:translateX(0); }
+.cart-header { display:flex; align-items:center; justify-content:space-between; padding:28px 26px 22px; border-bottom:1px solid rgba(255,255,255,.08); }
+.cart-label { color:#c9a86a; font-size:10px; letter-spacing:.18em; font-weight:600; }
+.cart-header h2 { margin:7px 0 0; font-size:27px; font-weight:500; }
+.cart-close { border:0; background:none; color:#fff; font-size:32px; cursor:pointer; line-height:1; opacity:.8; }
+.cart-close:hover { opacity:1; color:#c9a86a; }
+.cart-items { flex:1; overflow-y:auto; padding:18px 22px; }
+.cart-empty { height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:rgba(255,255,255,.65); padding:30px; }
+.cart-empty i { color:#c9a86a; font-size:35px; margin-bottom:18px; }
+.cart-empty p { margin:0 0 7px; color:#fff; font-size:18px; }
+.cart-empty span { font-size:13px; line-height:1.6; }
+.cart-item { display:grid; grid-template-columns:82px 1fr auto; gap:14px; padding:15px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+.cart-item-image { width:82px; height:98px; border-radius:8px; overflow:hidden; background:#1b1b1b; }
+.cart-item-image img { width:100%; height:100%; object-fit:cover; display:block; }
+.cart-item-info h3 { margin:2px 0 7px; font-size:15px; font-weight:600; }
+.cart-item-meta { display:flex; flex-wrap:wrap; gap:7px 12px; color:rgba(255,255,255,.58); font-size:11px; }
+.cart-item-price { margin-top:10px; color:#c9a86a; font-size:13px; font-weight:600; }
+.cart-item-actions { display:flex; align-items:flex-end; justify-content:flex-end; flex-direction:column; gap:10px; }
+.cart-qty { display:flex; align-items:center; border:1px solid rgba(255,255,255,.14); border-radius:6px; overflow:hidden; }
+.cart-qty button { width:27px; height:27px; border:0; background:transparent; color:#fff; cursor:pointer; }
+.cart-qty button:hover { background:rgba(201,168,106,.12); color:#c9a86a; }
+.cart-qty span { min-width:28px; text-align:center; font-size:12px; }
+.cart-remove { border:0; background:none; color:rgba(255,255,255,.4); font-size:11px; cursor:pointer; }
+.cart-remove:hover { color:#fff; }
+.cart-footer { padding:20px 22px 24px; border-top:1px solid rgba(255,255,255,.08); background:#111; }
+.cart-total-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:17px; font-size:15px; }
+.cart-total-row strong { color:#c9a86a; font-size:19px; }
+.cart-enquiry { width:100%; }
+@media (max-width:600px) { .cart-header { padding:22px 20px; } .cart-items { padding:12px 18px; } .cart-item { grid-template-columns:68px 1fr; } .cart-item-image { width:68px; height:82px; } .cart-item-actions { grid-column:2; flex-direction:row; align-items:center; justify-content:space-between; } }
+
+.product-description {
+    margin: 12px 0 22px;
+    color: rgba(255,255,255,.62);
+    font-size: 13px;
+    line-height: 1.75;
+    max-width: 520px;
+}
+
+.product-description p {
+    margin: 0;
+}
+
+.product-description p + p {
+    margin-top: 4px;
+}
+
+</style>
+
 </head>
 
 
@@ -89,8 +144,8 @@
 
         </nav>
 
-        <button class="nav-btn">
-            Cart
+        <button class="nav-btn" id="cartButton" type="button">
+            Cart <span class="cart-count" id="cartCount">0</span>
         </button>
 
         <button class="hamburger"
@@ -288,7 +343,6 @@
 
     <div class="subcategory-toolbar">
 
-
         <!-- ======================================
              T-SHIRTS
         ======================================= -->
@@ -297,37 +351,73 @@
             class="subcategory-group active"
             data-parent="t-shirts">
 
-
             <button
                 class="sub-filter active"
                 data-subfilter="all">
-
                 All
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="spuntee">
-
                 Spuntee
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="snappy">
-
                 Snappy
-
             </button>
 
+            <button
+                class="sub-filter"
+                data-subfilter="aciddrip">
+                AcidDrip
+            </button>
+
+            <button
+                class="sub-filter"
+                data-subfilter="cloudcot">
+                CloudCot
+            </button>
+
+            <button
+                class="sub-filter"
+                data-subfilter="cotblend">
+                CotBlend
+            </button>
+
+            <button
+                class="sub-filter"
+                data-subfilter="cotblend+">
+                CotBlend+
+            </button>
+
+            <button
+                class="sub-filter"
+                data-subfilter="dotrush">
+                DotRush
+            </button>
+
+            <button
+                class="sub-filter"
+                data-subfilter="cotlycra">
+                Cotlycra
+            </button>
+
+            <button
+                class="sub-filter"
+                data-subfilter="halodrop">
+                Halodrop
+            </button>
+
+            <button
+                class="sub-filter"
+                data-subfilter="honeyflex">
+                HoneyFlex
+            </button>
 
         </div>
-
-
 
         <!-- ======================================
              POLOS
@@ -337,37 +427,31 @@
             class="subcategory-group"
             data-parent="polos">
 
-
             <button
                 class="sub-filter active"
                 data-subfilter="all">
-
                 All
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="premium-polo">
-
                 Premium Polo
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="perfomars">
-
                 PerfoMARS
-
             </button>
 
+            <button
+                class="sub-filter"
+                data-subfilter="dotrush-polo">
+                DotRush Polo
+            </button>
 
         </div>
-
-
 
         <!-- ======================================
              SHIRTS
@@ -377,28 +461,19 @@
             class="subcategory-group"
             data-parent="shirts">
 
-
             <button
                 class="sub-filter active"
                 data-subfilter="all">
-
                 All
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="formal-shirts">
-
                 Formal Shirt
-
             </button>
 
-
         </div>
-
-
 
         <!-- ======================================
              BOTTOMS
@@ -408,37 +483,31 @@
             class="subcategory-group"
             data-parent="bottoms">
 
-
             <button
                 class="sub-filter active"
                 data-subfilter="all">
-
                 All
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="track-pants">
-
                 Track Pants
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="shorts">
-
                 Shorts
-
             </button>
 
+            <button
+                class="sub-filter"
+                data-subfilter="formal-pants">
+                Formal Pants
+            </button>
 
         </div>
-
-
 
         <!-- ======================================
              HOODIES
@@ -448,28 +517,19 @@
             class="subcategory-group"
             data-parent="hoodies">
 
-
             <button
                 class="sub-filter active"
                 data-subfilter="all">
-
                 All
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="pullpop">
-
                 Pullpop
-
             </button>
 
-
         </div>
-
-
 
         <!-- ======================================
              ACCESSORIES
@@ -479,30 +539,21 @@
             class="subcategory-group"
             data-parent="accessories">
 
-
             <button
                 class="sub-filter active"
                 data-subfilter="all">
-
                 All
-
             </button>
-
 
             <button
                 class="sub-filter"
                 data-subfilter="caps">
-
                 Caps
-
             </button>
-
 
         </div>
 
-
     </div>
-
 
 
     <!-- ==========================================
@@ -571,6 +622,148 @@
         </div>
 
 
+        <!-- =====================================
+             CLOUDCOT
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="t-shirts"
+
+            data-subcategory="cloudcot"
+
+            data-name="CloudCot"
+
+            data-blue-front="images/cloudcot-blue-front.png"
+            data-blue-back="images/cloudcot-blue-back.png"
+
+            data-red-front="images/cloudcot-red-front.png"
+            data-red-back="images/cloudcot-red-back.png"
+
+            data-yellow-front="images/cloudcot-yellow-front.png"
+            data-yellow-back="images/cloudcot-yellow-back.png"
+
+            data-grey-front="images/cloudcot-grey-front.png"
+            data-grey-back="images/cloudcot-grey-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+                    <img
+                        class="card-front"
+                        src="images/cloudcot-blue-front.png"
+                        alt="CloudCot Cyan Front">
+
+                    <img
+                        class="card-back"
+                        src="images/cloudcot-blue-back.png"
+                        alt="CloudCot Cyan Back">
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                CloudCot
+            </h3>
+
+
+        </div>
+
+
+        <!-- =====================================
+             COTBLEND
+        ====================================== -->
+
+        <div
+            class="collection-card"
+            data-category="t-shirts"
+            data-subcategory="cotblend"
+            data-name="CotBlend"
+
+            data-black-front="images/cotblend-black-front.png"
+            data-black-back="images/cotblend-black-back.png"
+
+            data-blue-front="images/cotblend-blue-front.png"
+            data-blue-back="images/cotblend-blue-back.png"
+
+            data-purple-front="images/cotblend-purple-front.png"
+            data-purple-back="images/cotblend-purple-back.png"
+
+            data-red-front="images/cotblend-red-front.png"
+            data-red-back="images/cotblend-red-back.png">
+
+            <div class="card-flip">
+                <div class="card-inner">
+
+                    <img
+                        class="card-front"
+                        src="images/cotblend-black-front.png"
+                        alt="CotBlend Black Front">
+
+                    <img
+                        class="card-back"
+                        src="images/cotblend-black-back.png"
+                        alt="CotBlend Black Back">
+
+                </div>
+            </div>
+
+            <h3>
+                CotBlend
+            </h3>
+
+        </div>
+
+
+        <!-- =====================================
+             COTBLEND+
+        ====================================== -->
+
+        <div
+            class="collection-card"
+            data-category="t-shirts"
+            data-subcategory="cotblend+"
+            data-name="CotBlend+"
+
+            data-red-front="images/cotblend+-red-front.png"
+            data-red-back="images/cotblend+-red-back.png"
+
+            data-black-front="images/cotblend+-black-front.png"
+            data-black-back="images/cotblend+-black-back.png"
+
+            data-blue-front="images/cotblend+-blue-front.png"
+            data-blue-back="images/cotblend+-blue-back.png"
+
+            data-yellow-front="images/cotblend+-yellow-front.png"
+            data-yellow-back="images/cotblend+-yellow-back.png">
+
+            <div class="card-flip">
+                <div class="card-inner">
+
+                    <img
+                        class="card-front"
+                        src="images/cotblend+-red-front.png"
+                        alt="CotBlend+ Red Front">
+
+                    <img
+                        class="card-back"
+                        src="images/cotblend+-red-back.png"
+                        alt="CotBlend+ Red Back">
+
+                </div>
+            </div>
+
+            <h3>
+                CotBlend+
+            </h3>
+
+        </div>
+
 
         <!-- =====================================
              SNAPPY
@@ -627,6 +820,249 @@
 
         </div>
 
+
+        <!-- =====================================
+             ACIDDRIP
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="t-shirts"
+
+            data-subcategory="aciddrip"
+
+            data-name="AcidDrip"
+
+            data-green-front="images/acid-drip-green-front.png"
+            data-green-back="images/acid-drip-green-back.png"
+
+            data-blue-front="images/acid-drip-blue-front.png"
+            data-blue-back="images/acid-drip-blue-back.png"
+
+            data-red-front="images/acid-drip-red-front.png"
+            data-red-back="images/acid-drip-red-back.png"
+
+            data-grey-front="images/acid-drip-grey-front.png"
+            data-grey-back="images/acid-drip-grey-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+                    <img
+                        class="card-front"
+                        src="images/acid-drip-green-front.png"
+                        alt="AcidDrip Green Front">
+
+                    <img
+                        class="card-back"
+                        src="images/acid-drip-green-back.png"
+                        alt="AcidDrip Green Back">
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                AcidDrip
+            </h3>
+
+
+        </div>
+
+
+        <!-- =====================================
+             DOTRUSH
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="t-shirts"
+
+            data-subcategory="dotrush"
+
+            data-name="DotRush"
+
+            data-white-front="images/dotrush-white-front.png"
+            data-white-back="images/dotrush-white-back.png"
+
+            data-black-front="images/dotrush-black-front.png"
+            data-black-back="images/dotrush-black-back.png"
+
+            data-blue-front="images/dotrush-blue-front.png"
+            data-blue-back="images/dotrush-blue-back.png"
+
+            data-yellow-front="images/dotrush-yellow-front.png"
+            data-yellow-back="images/dotrush-yellow-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+
+                    <img
+                        class="card-front"
+                        src="images/dotrush-white-front.png"
+                        alt="DotRush White Front">
+
+
+                    <img
+                        class="card-back"
+                        src="images/dotrush-white-back.png"
+                        alt="DotRush White Back">
+
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                DotRush
+            </h3>
+
+
+        </div>
+
+
+        <!-- =====================================
+             COTLYCRA
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="t-shirts"
+
+            data-subcategory="cotlycra"
+
+            data-name="Cotlycra"
+
+            data-pink-front="images/cotlycra-pink-front.png"
+            data-pink-back="images/cotlycra-pink-back.png"
+
+            data-yellow-front="images/cotlycra-yellow-front.png"
+            data-yellow-back="images/cotlycra-yellow-back.png"
+
+            data-blue-front="images/cotlycra-blue-front.png"
+            data-blue-back="images/cotlycra-blue-back.png"
+
+            data-red-front="images/cotlycra-red-front.png"
+            data-red-back="images/cotlycra-red-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+
+                    <img
+                        class="card-front"
+                        src="images/cotlycra-pink-front.png"
+                        alt="Cotlycra Pink Front">
+
+
+                    <img
+                        class="card-back"
+                        src="images/cotlycra-pink-back.png"
+                        alt="Cotlycra Pink Back">
+
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Cotlycra
+            </h3>
+
+
+        </div>
+
+
+        <!-- =====================================
+             HALODROP
+        ====================================== -->
+
+        <div
+            class="collection-card"
+            data-category="t-shirts"
+            data-subcategory="halodrop"
+            data-name="Halodrop"
+            data-pink-front="images/halodrop-pink-front.png"
+            data-pink-back="images/halodrop-pink-back.png"
+            data-blue-front="images/halodrop-blue-front.png"
+            data-blue-back="images/halodrop-blue-back.png"
+            data-black-front="images/halodrop-black-front.png"
+            data-black-back="images/halodrop-black-back.png"
+            data-white-front="images/halodrop-white-front.png"
+            data-white-back="images/halodrop-white-back.png">
+            <div class="card-flip">
+                <div class="card-inner">
+                    <img class="card-front" src="images/halodrop-pink-front.png" alt="Halodrop Pink Front">
+                    <img class="card-back" src="images/halodrop-pink-back.png" alt="Halodrop Pink Back">
+                </div>
+            </div>
+            <h3>Halodrop</h3>
+        </div>
+
+
+        <!-- =====================================
+             HONEYFLEX
+        ====================================== -->
+
+        <div
+            class="collection-card"
+            data-category="t-shirts"
+            data-subcategory="honeyflex"
+            data-name="HoneyFlex"
+            data-purple-front="images/honeyflex-purple-front.png"
+            data-purple-back="images/honeyflex-purple-back.png"
+            data-blue-front="images/honeyflex-blue-front.png"
+            data-blue-back="images/honeyflex-blue-back.png"
+            data-black-front="images/honeyflex-black-front.png"
+            data-black-back="images/honeyflex-black-back.png"
+            data-white-front="images/honeyflex-white-front.png"
+            data-white-back="images/honeyflex-white-back.png">
+            <div class="card-flip">
+                <div class="card-inner">
+                    <img class="card-front" src="images/honeyflex-purple-front.png" alt="HoneyFlex Purple Front">
+                    <img class="card-back" src="images/honeyflex-purple-back.png" alt="HoneyFlex Purple Back">
+                </div>
+            </div>
+            <h3>HoneyFlex</h3>
+        </div>
+
+
+        <!-- =====================================
+             FORMAL PANTS
+        ====================================== -->
+
+        <div
+            class="collection-card"
+            data-category="bottoms"
+            data-subcategory="formal-pants"
+            data-name="Formal Pants"
+            data-blue-front="images/formal-pants-blue-front.png"
+            data-blue-back="images/formal-pants-blue-back.png"
+            data-black-front="images/formal-pants-black-front.png"
+            data-black-back="images/formal-pants-black-back.png"
+            data-white-front="images/formal-pants-white-front.png"
+            data-white-back="images/formal-pants-white-back.png">
+            <div class="card-flip">
+                <div class="card-inner">
+                    <img class="card-front" src="images/formal-pants-blue-front.png" alt="Formal Pants Blue Front">
+                    <img class="card-back" src="images/formal-pants-blue-back.png" alt="Formal Pants Blue Back">
+                </div>
+            </div>
+            <h3>Formal Pants</h3>
+        </div>
 
 
         <!-- =====================================
@@ -685,7 +1121,6 @@
         </div>
 
 
-
         <!-- =====================================
              PERFOMARS
         ====================================== -->
@@ -741,6 +1176,61 @@
 
         </div>
 
+
+        <!-- =====================================
+             DOTRUSH POLO
+        ====================================== -->
+
+        <div
+            class="collection-card"
+
+            data-category="polos"
+
+            data-subcategory="dotrush-polo"
+
+            data-name="DotRush Polo"
+
+            data-black-front="images/dotrush-polo-black-front.png"
+            data-black-back="images/dotrush-polo-black-back.png"
+
+            data-red-front="images/dotrush-polo-red-front.png"
+            data-red-back="images/dotrush-polo-red-back.png"
+
+            data-blue-front="images/dotrush-polo-blue-front.png"
+            data-blue-back="images/dotrush-polo-blue-back.png"
+
+            data-yellow-front="images/dotrush-polo-yellow-front.png"
+            data-yellow-back="images/dotrush-polo-yellow-back.png">
+
+
+            <div class="card-flip">
+
+                <div class="card-inner">
+
+
+                    <img
+                        class="card-front"
+                        src="images/dotrush-polo-black-front.png"
+                        alt="DotRush Polo Black Front">
+
+
+                    <img
+                        class="card-back"
+                        src="images/dotrush-polo-black-back.png"
+                        alt="DotRush Polo Black Back">
+
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                DotRush Polo
+            </h3>
+
+
+        </div>
 
 
         <!-- =====================================
@@ -1088,9 +1578,10 @@
 
 
             <p class="product-price">
-                ₹499
+                $
             </p>
 
+            <div class="product-description" id="productDescription"></div>
 
             <h4>
                 Colours
@@ -1146,6 +1637,12 @@
                     data-color="purple">
                 </button>
 
+
+                <button
+                    class="color pink"
+                    data-color="pink">
+                </button>
+
             </div>
 
 
@@ -1192,7 +1689,7 @@
 
 
 
-            <button class="primary-btn">
+            <button class="primary-btn" id="addToCartButton" type="button">
                 Add to Cart
             </button>
 
@@ -1205,6 +1702,40 @@
 
 </div>
 
+
+
+
+<!-- ==========================================
+     CART DRAWER
+========================================== -->
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+        <div>
+            <span class="cart-label">YOUR SELECTION</span>
+            <h2>Your Cart</h2>
+        </div>
+        <button class="cart-close" id="cartClose" type="button" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <p>Your cart is empty.</p>
+            <span>Add products from the collection to get started.</span>
+        </div>
+    </div>
+
+    <div class="cart-footer">
+        <div class="cart-total-row">
+            <span>Total</span>
+            <strong id="cartTotal">$</strong>
+        </div>
+        <button class="primary-btn cart-enquiry" id="cartEnquiry" type="button">Request a Quote</button>
+    </div>
+</aside>
 
 
 <!-- ==========================================
@@ -1246,8 +1777,10 @@
 
             <p>
 
+
                 Premium polos, T-shirts, uniforms and corporate apparel
                 designed to elevate your brand identity.
+
 
             </p>
 

@@ -836,7 +836,9 @@
     background:#1f6b3a;
 
 }
-
+.pink {
+    background: #e78fb3;
+}
 
 .product-image:hover .front-img{
 
